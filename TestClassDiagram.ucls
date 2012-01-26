@@ -1,0 +1,163 @@
+<class-diagram version="1.0.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <package id="17" language="java" name="org.nullsys.androidgames.doodledroids.event" 
+    project="[Droid] Doodle Droids (GL)" 
+    file="/[Droid] Doodle Droids (GL)/src/org/nullsys/androidgames/doodledroids/event" binary="false">    
+    <position x="236" y="139" width="-1" height="-1"/>  
+  </package>  
+  <package id="18" language="java" name="org.nullsys.androidgames.doodledroids.item" 
+    project="[Droid] Doodle Droids (GL)" 
+    file="/[Droid] Doodle Droids (GL)/src/org/nullsys/androidgames/doodledroids/item" binary="false">    
+    <position x="697" y="166" width="-1" height="-1"/>  
+  </package>  
+  <package id="19" language="java" name="org.nullsys.androidgames.doodledroids.quest" 
+    project="[Droid] Doodle Droids (GL)" 
+    file="/[Droid] Doodle Droids (GL)/src/org/nullsys/androidgames/doodledroids/quest" binary="false">    
+    <position x="1116" y="272" width="-1" height="-1"/>  
+  </package>  
+  <package id="20" language="java" name="org.nullsys.androidgames.doodledroids.screen" 
+    project="[Droid] Doodle Droids (GL)" 
+    file="/[Droid] Doodle Droids (GL)/src/org/nullsys/androidgames/doodledroids/screen" binary="false">    
+    <position x="214" y="513" width="-1" height="-1"/>  
+  </package>  
+  <package id="21" language="java" name="org.nullsys.androidgames.doodledroids.screen.mainmenu" 
+    project="[Droid] Doodle Droids (GL)" 
+    file="/[Droid] Doodle Droids (GL)/src/org/nullsys/androidgames/doodledroids/screen/mainmenu" binary="false">    
+    <position x="166" y="607" width="353" height="44"/>  
+  </package>  
+  <package id="22" language="java" name="org.nullsys.androidgames.doodledroids.screen.mainmenu.create" 
+    project="[Droid] Doodle Droids (GL)" 
+    file="/[Droid] Doodle Droids (GL)/src/org/nullsys/androidgames/doodledroids/screen/mainmenu/create" binary="false">    
+    <position x="1203" y="417" width="-1" height="-1"/>  
+  </package>  
+  <package id="23" language="java" name="org.nullsys.androidgames.framework.display" 
+    project="[Droid] Doodle Droids (GL)" 
+    file="/[Droid] Doodle Droids (GL)/src/org/nullsys/androidgames/framework/display" binary="false">    
+    <position x="943" y="82" width="-1" height="-1"/>  
+  </package>  
+  <package id="24" language="java" name="org.nullsys.androidgames.framework.event" project="[Droid] Doodle Droids (GL)" 
+    file="/[Droid] Doodle Droids (GL)/src/org/nullsys/androidgames/framework/event" binary="false">    
+    <position x="639" y="83" width="-1" height="-1"/>  
+  </package>  
+  <package id="25" language="java" name="org.nullsys.androidgames.framework.impl" project="[Droid] Doodle Droids (GL)" 
+    file="/[Droid] Doodle Droids (GL)/src/org/nullsys/androidgames/framework/impl" binary="false">    
+    <position x="331" y="83" width="-1" height="-1"/>  
+  </package>  
+  <package id="26" language="java" name="org.nullsys.androidgames.framework.math" project="[Droid] Doodle Droids (GL)" 
+    file="/[Droid] Doodle Droids (GL)/src/org/nullsys/androidgames/framework/math" binary="false">    
+    <position x="1235" y="80" width="-1" height="-1"/>  
+  </package>  
+  <dependency>    
+    <end type="SOURCE" nodeId="25"/>    
+    <end type="TARGET" nodeId="23"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="19"/>    
+    <end type="TARGET" nodeId="18"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="23"/>    
+    <end type="TARGET" nodeId="25"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="25"/>    
+    <end type="TARGET" nodeId="24"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="18"/>    
+    <end type="TARGET" nodeId="23"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="21"/>    
+    <end type="TARGET" nodeId="20"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="20"/>    
+    <end type="TARGET" nodeId="18"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="22"/>    
+    <end type="TARGET" nodeId="23"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="20"/>    
+    <end type="TARGET" nodeId="21"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="22"/>    
+    <end type="TARGET" nodeId="20"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="21"/>    
+    <end type="TARGET" nodeId="26"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="22"/>    
+    <end type="TARGET" nodeId="24"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="23"/>    
+    <end type="TARGET" nodeId="26"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="20"/>    
+    <end type="TARGET" nodeId="17"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="19"/>    
+    <end type="TARGET" nodeId="17"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="21"/>    
+    <end type="TARGET" nodeId="22"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="20"/>    
+    <end type="TARGET" nodeId="25"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="21"/>    
+    <end type="TARGET" nodeId="23"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="20"/>    
+    <end type="TARGET" nodeId="19"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="20"/>    
+    <end type="TARGET" nodeId="23"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="22"/>    
+    <end type="TARGET" nodeId="25"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="25"/>    
+    <end type="TARGET" nodeId="18"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="22"/>    
+    <end type="TARGET" nodeId="26"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="22"/>    
+    <end type="TARGET" nodeId="21"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="17"/>    
+    <end type="TARGET" nodeId="20"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="21"/>    
+    <end type="TARGET" nodeId="25"/>  
+  </dependency>  
+  <dependency>    
+    <end type="SOURCE" nodeId="20"/>    
+    <end type="TARGET" nodeId="26"/>  
+  </dependency>  
+  <classifier-display autosize="true" package="true" initial-value="false" signature="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true"/>    
+    <operations public="true" package="true" protected="true" private="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
