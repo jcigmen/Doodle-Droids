@@ -2,8 +2,6 @@ package org.nullsys.androidgames.doodledroids.screen;
 
 import java.util.ArrayList;
 
-import android.util.Log;
-
 import aurelienribon.tweenengine.equations.Linear;
 
 import javax.microedition.khronos.opengles.GL10;
@@ -26,150 +24,94 @@ import org.nullsys.androidgames.framework.display.text.Text;
 import org.nullsys.androidgames.framework.display.text.Text.TextRegistration;
 import org.nullsys.androidgames.framework.impl.GLScreen;
 
-/**
- * A Presentable Screen for the Store Module. Here, the users can select three different tabs; Items, wherein items can be purchased, Apparels, wherein apparels can be bought, and
- * an Inventory tab, where the user may sell items or apparels.
- */
 public class StoreScreen extends GLScreen {
 
-    /** Constant value representing Items for sale as the selected tab. */
     private static final int ITEMS = 0;
 
-    /** Constant value representing Apparels for sale as the selected tab. */
     private static final int APPAREL = 1;
 
-    /** Constant value representing the Inventory as the selected tab. */
     private static final int INVENTORY = 2;
 
-    /** Collection of DisplayObjects that pertains to the Items tab. */
     private ArrayList<DisplayObject> itemTabDisplays = new ArrayList<DisplayObject>();
 
-    /** Collection of DisplayObjects that pertains to the Apparels tab. */
     private ArrayList<DisplayObject> apparelTabDisplays = new ArrayList<DisplayObject>();
 
-    /** Collection of DisplayObjects that pertains to the Inventory tab. */
     private ArrayList<DisplayObject> inventoryTabDisplays = new ArrayList<DisplayObject>();
 
-    /** List of items for sale. */
     private ArrayList<InventoryItem> itemsForSale = new ArrayList<InventoryItem>();
 
-    /** List of apparels for sale. */
     private ArrayList<EquippableItem> apparelsForSale = new ArrayList<EquippableItem>();
 
-    /** Price label for each item in the box. */
     private ArrayList<Text> itemPrices = new ArrayList<Text>();
 
-    /** Collection for quick manipulation of item boxes. */
     private ArrayList<ToggleButton> itemBoxes = new ArrayList<ToggleButton>();
 
-    /** Collection for quick manipulation of inventory boxes. */
     private ArrayList<ToggleButton> invBoxes = new ArrayList<ToggleButton>();
 
-    /** The player's droid. */
     private DoodleDroid droid;
 
-    /** Numeric representation of the currently selected tab. */
     private int currentTab = ITEMS;
 
-    /** The screen to return to if the back button is pressed. */
     private Screen previousScreen;
 
-    /** The currently selected item box's index. */
     private int currentlySelectedItemBoxIndex = 20;
 
-    /** The currently selected inventory item box's index. */
     private int currentlySelectedInvBoxIndex = 30;
 
-    /** Set index for the items on sale to display. */
     private int itemsIndex = 0;
 
-    /** Set index for the items in inventory to display. */
     private int usablesIndex = 0;
 
-    /** Set index for the equips in inventory to display. */
     private int equipsIndex = 0;
 
-    ////////////////////////
-    //    DISPLAYABLES    //
-    ////////////////////////
-
-    /** The large panel that holds the tabs and other displayables. */
     private Sprite panel;
 
-    /** Back navigation. */
     private Button back;
 
-    /** Fixed label for the droills. */
     private Text droills;
 
-    /** Actual value of player's droills. */
     private Text droillsValue;
 
-    /** Toggle Button display for the selected Apparels tab. */
     private Sprite apparelsTabSelected;
 
-    /** Toggle Button display for the unselected Apparels tab. */
     private Sprite apparelsTabUnselected;
 
-    /** Toggle Button display for the selected Inventorytab. */
     private Sprite inventoryTabSelected;
 
-    /** Toggle Button display for the unelected Inventorytab. */
     private Sprite inventoryTabUnselected;
 
-    /** Sprite display for the selected Items tab. */
     private Sprite itemsTabSelected;
 
-    /** Sprite display for the unselected Items tab. */
     private Sprite itemsTabUnselected;
 
-    /** The panel for the draggable context menu that describes the selected item. */
     private Sprite contextMenu;
 
-    /** Close button for the context menu. */
     private Button contextMenuClose;
 
-    /** The name of the currently selected item. */
     private Text contextMenuItemName;
 
-    /** Description for the currently selected item. Not used for apparels. */
     private Text contextMenuItemDescription;
 
-    /** Buy button for both Items and Apparels tab context menu. */
     private Button contextMenuBuy;
 
-    /** Sell button for the inventory context menu. */
     private Button contextMenuSell;
 
-    /** Box holder for the items. */
     private ToggleButton itemBox1, itemBox2, itemBox3, itemBox4, itemBox5, itemBox6, itemBox7, itemBox8, itemBox9, itemBox10, itemBox11, itemBox12, itemBox13, itemBox14, itemBox15, itemBox16, itemBox17, itemBox18;
 
-    /** Single recycable Text for the item prices to avoid too much GC. */
     private Text itemPrice;
 
-    /** Left navigation button for the Items tab. */
     private Button itemLeftButton;
 
-    /** Right navigation button for the Items tab. */
     private Button itemRightButton;
 
-    ////////////////////////////
-    // INVENTORY TAB DISPLAYS //
-    ////////////////////////////
-
-    /** Box holder for the inventory items. */
     private ToggleButton invBox1, invBox2, invBox3, invBox4, invBox5, invBox6, invBox7, invBox8, invBox9, invBox10, invBox11, invBox12, invBox13, invBox14, invBox15, invBox16, invBox17, invBox18, invBox19, invBox20, invBox21, invBox22, invBox23, invBox24;
 
-    /** Left navigation button for usable items. */
     private Button usablesLeftButton;
 
-    /** Right navigation button for usable items. */
     private Button usablesRightButton;
 
-    /** Left navigation button for the equipment items. */
     private Button equipLeftButton;
 
-    /** Right navigation button for the equipment items. */
     private Button equipRightButton;
 
     public StoreScreen(Game game, Screen previousScreen) {
@@ -178,10 +120,6 @@ public class StoreScreen extends GLScreen {
 	droid = game.getDroid();
 
 	this.previousScreen = previousScreen;
-
-	///////////////////////////////////
-	// INSTANTIATE GENERAL DISPLAYS  //
-	///////////////////////////////////
 
 	itemsTabSelected = new Sprite(new TextureRegion(Assets.dashboardTabs, 8, 285, 147, 59));
 	itemsTabSelected.x = 24;
@@ -424,10 +362,6 @@ public class StoreScreen extends GLScreen {
 	itemRightButton.touchCallback = this;
 	itemTabDisplays.add(itemRightButton);
 	addChild(itemRightButton);
-
-	/////////////////////////////////////////
-	// INSTANTIATE IINVENTORY TAB DISPLAYS //
-	/////////////////////////////////////////
 
 	usablesLeftButton = new Button(new TextureRegion(Assets.dashboardTabs, 789, 18, 41, 39), new TextureRegion(Assets.dashboardTabs, 833, 22, 35, 33));
 	usablesLeftButton.x = 19;
@@ -681,7 +615,6 @@ public class StoreScreen extends GLScreen {
 	invBoxes.add(invBox24);
 	addChild(invBox24);
 
-	// The pop-up window should be added last.
 	contextMenu = new Sprite(new TextureRegion(Assets.dashboardTabs, 486, 270, 165, 183));
 	contextMenu.draggable = true;
 	contextMenu.touchCallback = this;
@@ -711,7 +644,6 @@ public class StoreScreen extends GLScreen {
 	contextMenuSell.touchCallback = this;
 	addChild(contextMenuSell);
 
-	// Finishing touches.
 	initItemsForSale();
 	initApparelsForSale();
 	showItemsTab();
@@ -737,8 +669,6 @@ public class StoreScreen extends GLScreen {
 
     @Override
     public void menuPressed() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
@@ -868,7 +798,6 @@ public class StoreScreen extends GLScreen {
 		if (currentTab == ITEMS && droid.droills >= itemsForSale.get(18 * itemsIndex + currentlySelectedItemBoxIndex).storeValue) {
 		    droid.usableItems.add(itemsForSale.get(18 * itemsIndex + currentlySelectedItemBoxIndex));
 		    droid.droills -= itemsForSale.get(18 * itemsIndex + currentlySelectedItemBoxIndex).storeValue;
-		    //game.setScreen(new PromptScreen(game, this, PromptScreen.OK_PROMPT, "Purchase\nSuccessful!"));
 		    if (Settings.soundEnabled)
 			Assets.buySell.play(1);
 		} else if (currentTab == ITEMS && droid.droills < itemsForSale.get(18 * itemsIndex + currentlySelectedItemBoxIndex).storeValue)
@@ -876,7 +805,6 @@ public class StoreScreen extends GLScreen {
 		else if (currentTab == APPAREL && droid.droills >= apparelsForSale.get(18 * itemsIndex + currentlySelectedItemBoxIndex).getStoreValue()) {
 		    droid.equipment.add(apparelsForSale.get(18 * itemsIndex + currentlySelectedItemBoxIndex));
 		    droid.droills -= apparelsForSale.get(18 * itemsIndex + currentlySelectedItemBoxIndex).getStoreValue();
-		    //game.setScreen(new PromptScreen(game, this, PromptScreen.OK_PROMPT, "Purchase\nSuccessful!"));
 		    if (Settings.soundEnabled)
 			Assets.buySell.play(1);
 		} else if (currentTab == APPAREL && droid.droills < apparelsForSale.get(18 * itemsIndex + currentlySelectedItemBoxIndex).getStoreValue())
@@ -962,7 +890,6 @@ public class StoreScreen extends GLScreen {
 	    }
 	} else if (currentTab == INVENTORY) {
 	    int priceIndex = 0;
-	    // Render the inventory usables
 	    for (int index = 12 * usablesIndex, rowIndex = 0, colIndex = 0; index < droid.usableItems.size() && index < 12 * usablesIndex + 12; index++, priceIndex++) {
 		float widthRatio = droid.usableItems.get(index).width * .5f / 2;
 		float heightRatio = droid.usableItems.get(index).height * .5f / 2;
@@ -980,7 +907,6 @@ public class StoreScreen extends GLScreen {
 		} else
 		    rowIndex++;
 	    }
-	    // Render the inventory equips
 	    for (int index = 12 * equipsIndex, rowIndex = 0, colIndex = 0; index < droid.equipment.size() && index < 12 * equipsIndex + 12; index++) {
 		float widthRatio = droid.equipment.get(index).getWidth() * .5f / 2;
 		float heightRatio = droid.equipment.get(index).getHeight() * .5f / 2;
@@ -998,34 +924,11 @@ public class StoreScreen extends GLScreen {
 		} else
 		    rowIndex++;
 	    }
-	    // Render the prices
-	    /*int index = 0;
-	    for (int rowIndex = 0, colIndex = 0; index < itemPrices.size() && index < droid.usableItems.size() - usablesIndex * 12; index++) {
-	    itemPrices.get(index).x = 89 + rowIndex * 60;
-	    itemPrices.get(index).y = 222 - colIndex * 51;
-	    itemPrices.get(index).render(batcher);
-	    if (rowIndex > 0 && rowIndex % 5 == 0) {
-	        rowIndex = 0;
-	        colIndex++;
-	    } else
-	        rowIndex++;
-	    }
-	    for (int rowIndex = 1, colIndex = 0; index < itemPrices.size(); index++) {
-	    itemPrices.get(index).x = 89 + rowIndex * 60;
-	    itemPrices.get(index).y = 120 - colIndex * 51;
-	    itemPrices.get(index).render(batcher);
-	    if (rowIndex > 0 && rowIndex % 5 == 0) {
-	        rowIndex = 0;
-	        colIndex++;
-	    } else
-	        rowIndex++;
-	    }*/
 	}
 
 	contextMenu.render(batcher);
 	contextMenuClose.render(batcher);
 	contextMenuItemName.render(batcher);
-	//contextMenuItemDescription.render(batcher);
 	contextMenuBuy.render(batcher);
 	contextMenuSell.render(batcher);
 
@@ -1040,7 +943,6 @@ public class StoreScreen extends GLScreen {
 
     @Override
     public void update(float deltaTime) {
-	// Re-allign the context menu components
 	contextMenuClose.x = contextMenu.x + 123;
 	contextMenuClose.y = contextMenu.y + 160;
 	contextMenuClose.downstate.x = contextMenu.x + 123;
@@ -1058,12 +960,8 @@ public class StoreScreen extends GLScreen {
 	contextMenuSell.downstate.x = contextMenu.x + 32;
 	contextMenuSell.downstate.y = contextMenu.y + 14;
 
-	// Droills must be updated too.
 	droillsValue.text = "" + droid.droills;
-
-	// Only show the context menu if an item box is selected.
 	setContextMenuVisibility(hasOneItemBoxSelected() || hasOneInventoryBoxSelected());
-
 	if (currentTab == ITEMS) {
 	    setInventoryBoxesVisibility(false);
 	    setItemBoxesVisiblity(true);
@@ -1081,12 +979,9 @@ public class StoreScreen extends GLScreen {
 		itemPrice.scaleY = .65f;
 		itemPrices.add(index, itemPrice);
 	    }
-
-	    // Show/hide the left and right button for the Items.
 	    itemLeftButton.visible = itemsIndex > 0;
 	    itemRightButton.visible = itemsForSale.size() > 18 * (itemsIndex + 1);
 	} else if (currentTab == APPAREL) {
-
 	    setInventoryBoxesVisibility(false);
 	    setItemBoxesVisiblity(true);
 	    try {
@@ -1104,8 +999,6 @@ public class StoreScreen extends GLScreen {
 		itemPrice.scaleY = .65f;
 		itemPrices.add(index, itemPrice);
 	    }
-
-	    // Show/hide the left and right button for the Items.
 	    itemLeftButton.visible = itemsIndex > 0;
 	    itemRightButton.visible = apparelsForSale.size() > 18 * (itemsIndex + 1);
 	} else if (currentTab == INVENTORY) {
@@ -1121,7 +1014,6 @@ public class StoreScreen extends GLScreen {
 			    + droid.equipment.get(12 * equipsIndex + currentlySelectedInvBoxIndex - 12).getHealthBonus() + " Health";
 		}
 	    } catch (IndexOutOfBoundsException e) {
-		Log.d("TEST", "[StoreScreen] NPE @ update: " + currentlySelectedInvBoxIndex);
 		setContextMenuVisibility(false);
 	    }
 	    itemPrices = new ArrayList<Text>(itemsForSale.size());
@@ -1140,11 +1032,9 @@ public class StoreScreen extends GLScreen {
 		itemPrice.scaleY = .65f;
 		itemPrices.add(itemPriceIndex, itemPrice);
 	    }
-	    // Show/hide the left and right buttons for Inventory usables
 	    usablesLeftButton.visible = usablesIndex > 0;
 	    usablesRightButton.visible = droid.usableItems.size() > 12 * (usablesIndex + 1);
 
-	    // Show/hide the left and right buttons for Inventory equips
 	    equipLeftButton.visible = equipsIndex > 0;
 	    equipRightButton.visible = droid.equipment.size() > 12 * (equipsIndex + 1);
 	}
@@ -1152,7 +1042,6 @@ public class StoreScreen extends GLScreen {
 	contextMenuSell.visible = !contextMenuBuy.visible && contextMenu.visible;
     }
 
-    /** Deselect the other inventory item boxes when one is selected. */
     private void deselectOtherInventoryBox(int selectedInvBox) {
 	currentlySelectedInvBoxIndex = selectedInvBox - 1;
 	for (int invBoxIndex = 0; invBoxIndex < invBoxes.size(); invBoxIndex++)
@@ -1161,7 +1050,6 @@ public class StoreScreen extends GLScreen {
 	moveContextMenu(selectedInvBox);
     }
 
-    /** Deselect the other item boxes when one is selected. */
     private void deselectOtherItemBox(int selectedItemBoxIndex) {
 	currentlySelectedItemBoxIndex = selectedItemBoxIndex - 1;
 	for (int itemBoxIndex = 0; itemBoxIndex < itemBoxes.size(); itemBoxIndex++)
@@ -1170,7 +1058,6 @@ public class StoreScreen extends GLScreen {
 	moveContextMenu(selectedItemBoxIndex);
     }
 
-    /** Check if an inventory box is selected. */
     private boolean hasOneInventoryBoxSelected() {
 	boolean oneSelected = false;
 	for (int invBoxIndex = 0; invBoxIndex < invBoxes.size(); invBoxIndex++)
@@ -1181,7 +1068,6 @@ public class StoreScreen extends GLScreen {
 	return oneSelected;
     }
 
-    /** Check if an item box is selected. */
     private boolean hasOneItemBoxSelected() {
 	boolean oneSelected = false;
 	for (int itemBoxIndex = 0; itemBoxIndex < itemBoxes.size(); itemBoxIndex++)
@@ -1192,7 +1078,6 @@ public class StoreScreen extends GLScreen {
 	return oneSelected;
     }
 
-    /** Add up the apparels for sale into the collection. */
     private void initApparelsForSale() {
 	apparelsForSale.add(ItemFactory.getEquippable("Hacker Hat"));
 	apparelsForSale.add(ItemFactory.getEquippable("Boys Cap"));
@@ -1205,7 +1090,6 @@ public class StoreScreen extends GLScreen {
 	apparelsForSale.add(ItemFactory.getEquippable("Box Hat"));
     }
 
-    /** Add up the items for sale into the collection. */
     private void initItemsForSale() {
 	itemsForSale.add(ItemFactory.getInventoryItem("Battery S"));
 	itemsForSale.add(ItemFactory.getInventoryItem("Battery M"));
@@ -1221,7 +1105,6 @@ public class StoreScreen extends GLScreen {
 	itemsForSale.add(ItemFactory.getInventoryItem("X Ring"));
     }
 
-    /** Place the context menu in a specific coordinates in respect to the selected item box. */
     private void moveContextMenu(int selectedItemBoxIndex) {
 	if (currentTab == INVENTORY)
 	    switch (selectedItemBoxIndex) {
@@ -1418,20 +1301,17 @@ public class StoreScreen extends GLScreen {
 	contextMenuSell.visible = visible;
     }
 
-    /** Set the visiblity of the inventory boxes to either true or false. */
     private void setInventoryBoxesVisibility(boolean visible) {
 	for (int index = 0; index < invBoxes.size(); index++)
 	    invBoxes.get(index).visible = visible;
 
     }
 
-    /** Set the visibility of the item boxes to either true or false. */
     private void setItemBoxesVisiblity(boolean visible) {
 	for (int index = 0; index < itemBoxes.size(); index++)
 	    itemBoxes.get(index).visible = visible;
     }
 
-    /** Show all displays related to the Apparel tab. */
     private void showApparelsTab() {
 	apparelsTabSelected.visible = true;
 	apparelsTabUnselected.visible = false;
@@ -1448,7 +1328,6 @@ public class StoreScreen extends GLScreen {
 	    itemTabDisplays.get(index).visible = false;
     }
 
-    /** Show all displays related to the Inventory tab. */
     private void showInventoryTab() {
 	apparelsTabSelected.visible = false;
 	apparelsTabUnselected.visible = true;
@@ -1465,7 +1344,6 @@ public class StoreScreen extends GLScreen {
 	    itemTabDisplays.get(index).visible = false;
     }
 
-    /** Show all displays related to the Items tab. */
     private void showItemsTab() {
 	apparelsTabSelected.visible = false;
 	apparelsTabUnselected.visible = true;

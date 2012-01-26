@@ -1,7 +1,5 @@
 package org.nullsys.androidgames.framework.display;
 
-import android.util.Log;
-
 import org.nullsys.androidgames.framework.Input.TouchEvent;
 
 public class PercentageBar extends DisplayObjectContainer {
@@ -14,19 +12,6 @@ public class PercentageBar extends DisplayObjectContainer {
 	super.textureRegion = textureRegion;
 	super.width = textureRegion.width;
 	super.height = textureRegion.height;
-    }
-
-    @Override
-    public void render(SpriteBatcher batcher) {
-	batcher.beginBatch(getTextureRegion().texture);
-	batcher.drawSprite(x, y, getWidth() * percentageWidth, getHeight() * percentageHeight, scaleX, scaleY, rotation, getTextureRegion());
-	batcher.endBatch();
-    }
-
-    @Override
-    public void update(float deltaTime) {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
@@ -67,8 +52,6 @@ public class PercentageBar extends DisplayObjectContainer {
 			if (touchCallback != null)
 			    touchCallback.onTouchEvent(this, touchEvent);
 			if (dragged && draggable) {
-			    Log.d("TEST", "EvtX: " + (eventX - previousX));
-			    Log.d("TEST", "EvtY: " + (320 - eventY));
 			    if (dragX)
 				x += eventX - previousEventX;
 			    if (dragY)
@@ -91,9 +74,20 @@ public class PercentageBar extends DisplayObjectContainer {
 	return super.textureRegion;
     }
 
+    @Override
+    public void render(SpriteBatcher batcher) {
+	batcher.beginBatch(getTextureRegion().texture);
+	batcher.drawSprite(x, y, getWidth() * percentageWidth, getHeight() * percentageHeight, scaleX, scaleY, rotation, getTextureRegion());
+	batcher.endBatch();
+    }
+
     public void setPercentage(float percentageWidth, float percentageHeight) {
 	this.percentageWidth = percentageWidth;
 	this.percentageHeight = percentageHeight;
+    }
+
+    @Override
+    public void update(float deltaTime) {
     }
 
 }

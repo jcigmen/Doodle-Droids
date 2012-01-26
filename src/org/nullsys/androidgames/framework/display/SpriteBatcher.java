@@ -46,42 +46,6 @@ public class SpriteBatcher {
 	bufferIndex = 0;
     }
 
-    public void endBatch() {
-	vertices.setVertices(verticesBuffer, 0, bufferIndex);
-	vertices.bind();
-	vertices.draw(GL10.GL_TRIANGLES, 0, numSprites * 6);
-	vertices.unbind();
-    }
-
-    public void drawSprite(float x, float y, float width, float height, TextureRegion region) {
-	float x1 = x;
-	float y1 = y;
-	float x2 = x + width;
-	float y2 = y + height;
-
-	verticesBuffer[bufferIndex++] = x1;
-	verticesBuffer[bufferIndex++] = y1;
-	verticesBuffer[bufferIndex++] = region.u1;
-	verticesBuffer[bufferIndex++] = region.v2;
-
-	verticesBuffer[bufferIndex++] = x2;
-	verticesBuffer[bufferIndex++] = y1;
-	verticesBuffer[bufferIndex++] = region.u2;
-	verticesBuffer[bufferIndex++] = region.v2;
-
-	verticesBuffer[bufferIndex++] = x2;
-	verticesBuffer[bufferIndex++] = y2;
-	verticesBuffer[bufferIndex++] = region.u2;
-	verticesBuffer[bufferIndex++] = region.v1;
-
-	verticesBuffer[bufferIndex++] = x1;
-	verticesBuffer[bufferIndex++] = y2;
-	verticesBuffer[bufferIndex++] = region.u1;
-	verticesBuffer[bufferIndex++] = region.v1;
-
-	numSprites++;
-    }
-
     public void drawSprite(DisplayObject displayObject) {
 	float x1 = displayObject.x * displayObject.scaleX;
 	float y1 = displayObject.y * displayObject.scaleY;
@@ -137,15 +101,6 @@ public class SpriteBatcher {
 	x4 += x + halfWidth;
 	y4 += y + halfHeight;
 
-	/*Log.d("TEST", "X1: " + x1);
-	Log.d("TEST", "Y1: " + y1);
-	Log.d("TEST", "X2: " + x2);
-	Log.d("TEST", "Y2: " + y2);
-	Log.d("TEST", "X3: " + x3);
-	Log.d("TEST", "Y3: " + y3);
-	Log.d("TEST", "X4: " + x4);
-	Log.d("TEST", "Y4: " + y4);*/
-
 	verticesBuffer[bufferIndex++] = x1;
 	verticesBuffer[bufferIndex++] = y1;
 	verticesBuffer[bufferIndex++] = region.u1;
@@ -167,5 +122,41 @@ public class SpriteBatcher {
 	verticesBuffer[bufferIndex++] = region.v1;
 
 	numSprites++;
+    }
+
+    public void drawSprite(float x, float y, float width, float height, TextureRegion region) {
+	float x1 = x;
+	float y1 = y;
+	float x2 = x + width;
+	float y2 = y + height;
+
+	verticesBuffer[bufferIndex++] = x1;
+	verticesBuffer[bufferIndex++] = y1;
+	verticesBuffer[bufferIndex++] = region.u1;
+	verticesBuffer[bufferIndex++] = region.v2;
+
+	verticesBuffer[bufferIndex++] = x2;
+	verticesBuffer[bufferIndex++] = y1;
+	verticesBuffer[bufferIndex++] = region.u2;
+	verticesBuffer[bufferIndex++] = region.v2;
+
+	verticesBuffer[bufferIndex++] = x2;
+	verticesBuffer[bufferIndex++] = y2;
+	verticesBuffer[bufferIndex++] = region.u2;
+	verticesBuffer[bufferIndex++] = region.v1;
+
+	verticesBuffer[bufferIndex++] = x1;
+	verticesBuffer[bufferIndex++] = y2;
+	verticesBuffer[bufferIndex++] = region.u1;
+	verticesBuffer[bufferIndex++] = region.v1;
+
+	numSprites++;
+    }
+
+    public void endBatch() {
+	vertices.setVertices(verticesBuffer, 0, bufferIndex);
+	vertices.bind();
+	vertices.draw(GL10.GL_TRIANGLES, 0, numSprites * 6);
+	vertices.unbind();
     }
 }

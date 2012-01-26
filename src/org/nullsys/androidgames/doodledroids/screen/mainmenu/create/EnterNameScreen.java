@@ -1,7 +1,5 @@
 package org.nullsys.androidgames.doodledroids.screen.mainmenu.create;
 
-import android.util.Log;
-
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.equations.Back;
@@ -52,12 +50,10 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 
 	    @Override
 	    public void tweenEventOccured(Types arg0, Tween arg1) {
-		Log.d("TEST", "[EnterNameScreen] Switching to MainMenuScreen...");
 		game.setScreen(new MainMenuScreen(game));
 	    }
 	};
 
-	// Tween the displays
 	float targetX = back.x + (back.width - back.width * 0.2f) / 2;
 	float targetY = back.y + (back.height - back.height * 0.2f) / 2;
 
@@ -80,13 +76,10 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 
     @Override
     public void dispose() {
-
     }
 
     @Override
     public void menuPressed() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
@@ -230,12 +223,9 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 		    @Override
 		    public void tweenEventOccured(Types arg0, Tween arg1) {
 			game.getDroid().name = name.text;
-			Log.d("TEST", "[EnterNameScreen] Droid name is now " + game.getDroid().name);
 			game.setScreen(new ChooseModelScreen(game));
 		    }
 		};
-
-		// Tween the displays
 		label.move(0f, Linear.INOUT, 250, 0, false);
 
 		textBox.move(0f, Linear.INOUT, 250, 0, true);
@@ -313,7 +303,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	A.downstate.x = 94;
 	A.downstate.y = 93;
 	A.touchCallback = this;
-	//addChild(A);
 
 	a = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 710, 183, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 710, 183, 29, 28)));
 	a.x = 94;
@@ -322,7 +311,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	a.downstate.y = 93;
 	a.visible = false;
 	a.touchCallback = this;
-	//addChild(a);
 
 	B = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 855, 328, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 855, 328, 29, 28)));
 	B.x = 242;
@@ -330,7 +318,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	B.downstate.x = 242;
 	B.downstate.y = 58;
 	B.touchCallback = this;
-	//addChild(B);
 
 	b = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 858, 218, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 858, 218, 29, 28)));
 	b.x = 242;
@@ -339,7 +326,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	b.downstate.y = 58;
 	b.visible = false;
 	b.touchCallback = this;
-	//addChild(b);
 
 	C = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 787, 328, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 787, 328, 29, 28)));
 	C.x = 174;
@@ -347,7 +333,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	C.downstate.x = 174;
 	C.downstate.y = 58;
 	C.touchCallback = this;
-	//addChild(C);
 
 	c = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 790, 218, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 790, 218, 29, 28)));
 	c.x = 174;
@@ -356,7 +341,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	c.downstate.y = 58;
 	c.visible = false;
 	c.touchCallback = this;
-	//addChild(c);
 
 	D = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 773, 293, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 773, 293, 29, 28)));
 	D.x = 160;
@@ -364,7 +348,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	D.downstate.x = 160;
 	D.downstate.y = 93;
 	D.touchCallback = this;
-	//addChild(D);
 
 	d = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 776, 183, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 776, 183, 29, 28)));
 	d.x = 160;
@@ -373,7 +356,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	d.downstate.y = 93;
 	d.visible = false;
 	d.touchCallback = this;
-	//addChild(d);
 
 	E = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 758, 259, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 758, 259, 29, 28)));
 	E.x = 145;
@@ -381,7 +363,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	E.downstate.x = 145;
 	E.downstate.y = 127;
 	E.touchCallback = this;
-	//addChild(E);
 
 	e = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 761, 149, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 761, 149, 29, 28)));
 	e.x = 145;
@@ -390,7 +371,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	e.downstate.y = 127;
 	e.visible = false;
 	e.touchCallback = this;
-	//addChild(e);
 
 	F = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 806, 293, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 806, 293, 29, 28)));
 	F.x = 193;
@@ -398,7 +378,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	F.downstate.x = 193;
 	F.downstate.y = 93;
 	F.touchCallback = this;
-	//addChild(F);
 
 	f = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 809, 183, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 809, 183, 29, 28)));
 	f.x = 193;
@@ -407,7 +386,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	f.downstate.y = 93;
 	f.visible = false;
 	f.touchCallback = this;
-	//addChild(f);
 
 	G = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 839, 293, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 839, 293, 29, 28)));
 	G.x = 226;
@@ -415,7 +393,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	G.downstate.x = 226;
 	G.downstate.y = 93;
 	G.touchCallback = this;
-	//addChild(G);
 
 	g = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 842, 183, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 842, 183, 29, 28)));
 	g.x = 226;
@@ -424,7 +401,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	g.downstate.y = 93;
 	g.visible = false;
 	g.touchCallback = this;
-	//addChild(g);
 
 	H = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 872, 293, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 872, 293, 29, 28)));
 	H.x = 259;
@@ -432,7 +408,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	H.downstate.x = 259;
 	H.downstate.y = 93;
 	H.touchCallback = this;
-	//addChild(H);
 
 	h = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 875, 183, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 875, 183, 29, 28)));
 	h.x = 259;
@@ -441,7 +416,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	h.downstate.y = 93;
 	h.visible = false;
 	h.touchCallback = this;
-	//addChild(h);
 
 	I = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 919, 260, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 919, 260, 29, 28)));
 	I.x = 306;
@@ -449,7 +423,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	I.downstate.x = 306;
 	I.downstate.y = 126;
 	I.touchCallback = this;
-	//addChild(I);
 
 	i = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 922, 150, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 922, 150, 29, 28)));
 	i.x = 306;
@@ -458,7 +431,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	i.downstate.y = 126;
 	i.visible = false;
 	i.touchCallback = this;
-	//addChild(i);
 
 	J = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 905, 293, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 905, 293, 29, 28)));
 	J.x = 292;
@@ -466,7 +438,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	J.downstate.x = 292;
 	J.downstate.y = 93;
 	J.touchCallback = this;
-	//addChild(J);
 
 	j = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 908, 183, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 908, 183, 29, 28)));
 	j.x = 292;
@@ -475,7 +446,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	j.downstate.y = 93;
 	j.visible = false;
 	j.touchCallback = this;
-	//addChild(j);
 
 	K = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 939, 293, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 939, 293, 29, 28)));
 	K.x = 326;
@@ -483,7 +453,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	K.downstate.x = 326;
 	K.downstate.y = 93;
 	K.touchCallback = this;
-	//addChild(K);
 
 	k = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 942, 183, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 942, 183, 29, 28)));
 	k.x = 326;
@@ -492,7 +461,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	k.downstate.y = 93;
 	k.visible = false;
 	k.touchCallback = this;
-	//addChild(k);
 
 	L = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 972, 293, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 972, 293, 29, 28)));
 	L.x = 359;
@@ -500,7 +468,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	L.downstate.x = 359;
 	L.downstate.y = 93;
 	L.touchCallback = this;
-	//addChild(L);
 
 	l = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 975, 183, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 975, 183, 29, 28)));
 	l.x = 359;
@@ -509,7 +476,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	l.downstate.y = 93;
 	l.visible = false;
 	l.touchCallback = this;
-	//addChild(l);
 
 	M = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 924, 328, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 924, 328, 29, 28)));
 	M.x = 311;
@@ -517,7 +483,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	M.downstate.x = 311;
 	M.downstate.y = 58;
 	M.touchCallback = this;
-	//addChild(M);
 
 	m = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 927, 218, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 927, 218, 29, 28)));
 	m.x = 311;
@@ -526,7 +491,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	m.downstate.y = 58;
 	m.visible = false;
 	m.touchCallback = this;
-	//addChild(m);
 
 	N = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 889, 328, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 889, 328, 29, 28)));
 	N.x = 276;
@@ -534,7 +498,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	N.downstate.x = 276;
 	N.downstate.y = 58;
 	N.touchCallback = this;
-	//addChild(N);
 
 	n = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 892, 218, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 892, 218, 29, 28)));
 	n.x = 276;
@@ -543,7 +506,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	n.downstate.y = 58;
 	n.visible = false;
 	n.touchCallback = this;
-	//addChild(n);
 
 	O = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 951, 260, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 951, 260, 29, 28)));
 	O.x = 338;
@@ -551,7 +513,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	O.downstate.x = 338;
 	O.downstate.y = 126;
 	O.touchCallback = this;
-	//addChild(O);
 
 	o = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 954, 150, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 954, 150, 29, 28)));
 	o.x = 338;
@@ -560,7 +521,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	o.downstate.y = 126;
 	o.visible = false;
 	o.touchCallback = this;
-	//addChild(o);
 
 	P = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 983, 260, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 983, 260, 29, 28)));
 	P.x = 370;
@@ -568,7 +528,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	P.downstate.x = 370;
 	P.downstate.y = 126;
 	P.touchCallback = this;
-	//addChild(P);
 
 	p = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 986, 150, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 986, 150, 29, 28)));
 	p.x = 370;
@@ -577,7 +536,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	p.downstate.y = 126;
 	p.visible = false;
 	p.touchCallback = this;
-	//addChild(p);
 
 	Q = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 694, 259, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 694, 259, 29, 28)));
 	Q.x = 81;
@@ -585,7 +543,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	Q.downstate.x = 81;
 	Q.downstate.y = 127;
 	Q.touchCallback = this;
-	//addChild(Q);
 
 	q = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 697, 149, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 697, 149, 29, 28)));
 	q.x = 81;
@@ -594,7 +551,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	q.downstate.y = 127;
 	q.visible = false;
 	q.touchCallback = this;
-	//addChild(q);
 
 	R = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 790, 259, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 790, 259, 29, 28)));
 	R.x = 177;
@@ -602,7 +558,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	R.downstate.x = 177;
 	R.downstate.y = 127;
 	R.touchCallback = this;
-	//addChild(R);
 
 	r = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 793, 149, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 793, 149, 29, 28)));
 	r.x = 177;
@@ -611,7 +566,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	r.downstate.y = 127;
 	r.visible = false;
 	r.touchCallback = this;
-	//addChild(r);
 
 	S = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 740, 293, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 740, 293, 29, 28)));
 	S.x = 127;
@@ -619,7 +573,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	S.downstate.x = 127;
 	S.downstate.y = 93;
 	S.touchCallback = this;
-	//addChild(S);
 
 	s = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 743, 183, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 743, 183, 29, 28)));
 	s.x = 127;
@@ -628,7 +581,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	s.downstate.y = 93;
 	s.visible = false;
 	s.touchCallback = this;
-	//addChild(s);
 
 	T = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 822, 259, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 822, 259, 29, 28)));
 	T.x = 209;
@@ -636,7 +588,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	T.downstate.x = 209;
 	T.downstate.y = 127;
 	T.touchCallback = this;
-	//addChild(T);
 
 	t = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 825, 149, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 825, 149, 29, 28)));
 	t.x = 209;
@@ -645,7 +596,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	t.downstate.y = 127;
 	t.visible = false;
 	t.touchCallback = this;
-	//addChild(t);
 
 	U = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 886, 259, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 889, 259, 29, 28)));
 	U.x = 273;
@@ -653,7 +603,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	U.downstate.x = 273;
 	U.downstate.y = 127;
 	U.touchCallback = this;
-	//addChild(U);
 
 	u = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 889, 149, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 889, 149, 29, 28)));
 	u.x = 273;
@@ -662,7 +611,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	u.downstate.y = 127;
 	u.visible = false;
 	u.touchCallback = this;
-	//addChild(u);
 
 	V = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 821, 328, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 821, 328, 29, 28)));
 	V.x = 208;
@@ -670,7 +618,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	V.downstate.x = 208;
 	V.downstate.y = 58;
 	V.touchCallback = this;
-	//addChild(V);
 
 	v = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 824, 218, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 824, 218, 29, 28)));
 	v.x = 208;
@@ -679,7 +626,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	v.downstate.y = 58;
 	v.visible = false;
 	v.touchCallback = this;
-	//addChild(v);
 
 	W = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 726, 259, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 726, 259, 29, 28)));
 	W.x = 113;
@@ -687,7 +633,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	W.downstate.x = 113;
 	W.downstate.y = 127;
 	W.touchCallback = this;
-	//addChild(W);
 
 	w = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 729, 149, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 729, 149, 29, 28)));
 	w.x = 113;
@@ -696,7 +641,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	w.downstate.y = 127;
 	w.visible = false;
 	w.touchCallback = this;
-	//addChild(w);
 
 	X = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 754, 328, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 754, 328, 29, 28)));
 	X.x = 141;
@@ -704,7 +648,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	X.downstate.x = 141;
 	X.downstate.y = 58;
 	X.touchCallback = this;
-	//addChild(X);
 
 	x = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 757, 218, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 757, 218, 29, 28)));
 	x.x = 141;
@@ -713,7 +656,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	x.downstate.y = 58;
 	x.visible = false;
 	x.touchCallback = this;
-	//addChild(x);
 
 	Y = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 854, 259, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 854, 259, 29, 28)));
 	Y.x = 241;
@@ -721,7 +663,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	Y.downstate.x = 241;
 	Y.downstate.y = 127;
 	Y.touchCallback = this;
-	//addChild(Y);
 
 	y = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 857, 149, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 857, 149, 29, 28)));
 	y.x = 241;
@@ -730,7 +671,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	y.downstate.y = 127;
 	y.visible = false;
 	y.touchCallback = this;
-	//addChild(y);
 
 	capsLock = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 690, 218, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 690, 218, 29, 28)));
 	capsLock.x = 74;
@@ -738,7 +678,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	capsLock.downstate.x = 74;
 	capsLock.downstate.y = 58;
 	capsLock.touchCallback = this;
-	//addChild(capsLock);
 
 	Z = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 721, 328, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 721, 328, 29, 28)));
 	Z.x = 108;
@@ -746,7 +685,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	Z.downstate.x = 108;
 	Z.downstate.y = 58;
 	Z.touchCallback = this;
-	//addChild(Z);
 
 	z = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 724, 218, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 724, 218, 29, 28)));
 	z.x = 108;
@@ -755,7 +693,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	z.downstate.y = 58;
 	z.visible = false;
 	z.touchCallback = this;
-	//addChild(z);
 
 	one = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 697, 116, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 697, 116, 29, 28)));
 	one.x = 81;
@@ -763,7 +700,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	one.downstate.x = 81;
 	one.downstate.y = 160;
 	one.touchCallback = this;
-	//addChild(one);
 
 	two = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 729, 116, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 729, 116, 29, 28)));
 	two.x = 113;
@@ -771,7 +707,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	two.downstate.x = 113;
 	two.downstate.y = 160;
 	two.touchCallback = this;
-	//addChild(two);
 
 	three = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 761, 116, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 761, 116, 29, 28)));
 	three.x = 145;
@@ -779,7 +714,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	three.downstate.x = 145;
 	three.downstate.y = 160;
 	three.touchCallback = this;
-	//addChild(three);
 
 	four = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 793, 116, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 793, 116, 29, 28)));
 	four.x = 177;
@@ -787,7 +721,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	four.downstate.x = 177;
 	four.downstate.y = 160;
 	four.touchCallback = this;
-	//addChild(four);
 
 	five = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 826, 116, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 826, 116, 29, 28)));
 	five.x = 209;
@@ -795,7 +728,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	five.downstate.x = 209;
 	five.downstate.y = 160;
 	five.touchCallback = this;
-	//addChild(five);
 
 	six = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 857, 116, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 857, 116, 29, 28)));
 	six.x = 241;
@@ -803,7 +735,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	six.downstate.x = 241;
 	six.downstate.y = 160;
 	six.touchCallback = this;
-	//addChild(six);
 
 	seven = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 889, 116, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 889, 116, 29, 28)));
 	seven.x = 273;
@@ -811,7 +742,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	seven.downstate.x = 273;
 	seven.downstate.y = 160;
 	seven.touchCallback = this;
-	//addChild(seven);
 
 	eight = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 921, 116, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 921, 116, 29, 28)));
 	eight.x = 305;
@@ -819,7 +749,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	eight.downstate.x = 305;
 	eight.downstate.y = 160;
 	eight.touchCallback = this;
-	//addChild(eight);
 
 	nine = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 953, 116, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 953, 116, 29, 28)));
 	nine.x = 337;
@@ -827,7 +756,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	nine.downstate.x = 337;
 	nine.downstate.y = 160;
 	nine.touchCallback = this;
-	//addChild(nine);
 
 	zero = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 985, 116, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 985, 116, 29, 28)));
 	zero.x = 369;
@@ -835,7 +763,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	zero.downstate.x = 369;
 	zero.downstate.y = 160;
 	zero.touchCallback = this;
-	//addChild(zero);
 
 	space = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 961, 218, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 961, 218, 29, 28)));
 	space.x = 345;
@@ -843,7 +770,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	space.downstate.x = 345;
 	space.downstate.y = 58;
 	space.touchCallback = this;
-	//addChild(space);
 
 	delete = new Button(new Sprite(new TextureRegion(Assets.mainMenu, 995, 218, 29, 28)), new Sprite(new TextureRegion(Assets.mainMenu, 995, 218, 29, 28)));
 	delete.x = 379;
@@ -851,7 +777,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	delete.downstate.x = 379;
 	delete.downstate.y = 58;
 	delete.touchCallback = this;
-	//addChild(delete);
 
 	addChild(one);
 	addChild(two);
@@ -919,7 +844,6 @@ public class EnterNameScreen extends GLScreen implements TouchEventCallback {
 	addChild(z);
 	addChild(capsLock);
 
-	// Tween the displays
 	if (tweenNavigation) {
 	    back.x = 0 - back.width;
 	    back.move(new VectorCoords(12, 11), Back.OUT, 1000, 0, false);

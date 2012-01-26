@@ -17,8 +17,6 @@ public class Apparel extends Item implements EquippableItem {
 
     @Override
     public void checkInputs(int eventType, int eventX, int eventY) {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
@@ -53,7 +51,6 @@ public class Apparel extends Item implements EquippableItem {
 
     @Override
     public TextureRegion getTextureRegion() {
-	// TODO Auto-generated method stub
 	return null;
     }
 
@@ -79,8 +76,6 @@ public class Apparel extends Item implements EquippableItem {
 
     @Override
     public void update(float deltaTime) {
-	// TODO Auto-generated method stub
-
     }
 
 }

@@ -1,7 +1,5 @@
 package org.nullsys.androidgames.doodledroids.screen.mainmenu;
 
-import android.util.Log;
-
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.equations.Linear;
@@ -59,18 +57,14 @@ public class TitleScreen extends GLScreen implements TweenCallback {
 
     @Override
     public void dispose() {
-
     }
 
     @Override
     public void menuPressed() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
     public void onTouchEvent(DisplayObject source, TouchEvent event) {
-	Log.d("TEST", "[TitleScreen] Tapped!");
 	background.move(0.0f, Linear.INOUT, 200, 0, true);
 	title.move(0.0f, Linear.INOUT, 200, 0, true);
 	tapTheScreen.move(0.0f, Linear.INOUT, 200, 0, false);
@@ -90,10 +84,8 @@ public class TitleScreen extends GLScreen implements TweenCallback {
 
     @Override
     public void tweenEventOccured(Types arg0, Tween arg1) {
-	if (arg0 == Types.COMPLETE) {
-	    Log.d("TEST", "[TitleScreen] Switching to main menu...");
+	if (arg0 == Types.COMPLETE)
 	    game.setScreen(new MainMenuScreen(game));
-	}
     }
 
     @Override

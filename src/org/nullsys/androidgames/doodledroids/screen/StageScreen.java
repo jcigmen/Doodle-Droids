@@ -2,8 +2,6 @@ package org.nullsys.androidgames.doodledroids.screen;
 
 import java.util.List;
 
-import android.util.Log;
-
 import aurelienribon.tweenengine.equations.Linear;
 
 import org.nullsys.androidgames.doodledroids.Assets;
@@ -69,7 +67,6 @@ public class StageScreen extends GLScreen implements TouchEventCallback, WorldTi
 		game.getWorld().start();
 	    game.getWorld().worldCallback = this;
 	} catch (IllegalThreadStateException e) {
-	    Log.d("TEST", "WORLD THREAD ALREADY STARTED!");
 	}
     }
 
@@ -82,8 +79,6 @@ public class StageScreen extends GLScreen implements TouchEventCallback, WorldTi
 
     @Override
     public void dispose() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
@@ -94,8 +89,6 @@ public class StageScreen extends GLScreen implements TouchEventCallback, WorldTi
 
     @Override
     public void onHourPassed(float hour) {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
@@ -108,7 +101,6 @@ public class StageScreen extends GLScreen implements TouchEventCallback, WorldTi
 
     @Override
     public void onSecondPassed(float second) {
-
     }
 
     @Override
@@ -160,11 +152,6 @@ public class StageScreen extends GLScreen implements TouchEventCallback, WorldTi
     }
 
     @Override
-    public void update(float deltaTime) {
-
-    }
-
-    @Override
     public void updateChildren(float deltaTime) {
 	for (int displayObjectIndex = 0; displayObjectIndex < displayObjects.size(); displayObjectIndex++)
 	    displayObjects.get(displayObjectIndex).update(deltaTime);
@@ -178,7 +165,6 @@ public class StageScreen extends GLScreen implements TouchEventCallback, WorldTi
 	    for (int displayObjectIndex = 0; displayObjectIndex < displayObjects.size(); displayObjectIndex++)
 		displayObjects.get(displayObjectIndex).checkInputs(event.type, event.x, event.y);
 
-	    // Move the droid if nothing was tapped.
 	    boolean moveDroid = true;
 	    for (int index = 0; index < hud.displayObjects.size(); index++)
 		if (hud.displayObjects.get(index).hitTestPoint(event.x, event.y)) {

@@ -158,7 +158,6 @@ public class HeadsUpDisplay extends DisplayObjectContainer {
 
     @Override
     public TextureRegion getTextureRegion() {
-	// TODO Auto-generated method stub
 	return null;
     }
 

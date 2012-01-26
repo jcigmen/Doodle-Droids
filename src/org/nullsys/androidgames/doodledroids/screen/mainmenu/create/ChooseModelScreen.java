@@ -1,7 +1,5 @@
 package org.nullsys.androidgames.doodledroids.screen.mainmenu.create;
 
-import android.util.Log;
-
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.equations.Back;
@@ -35,7 +33,6 @@ public class ChooseModelScreen extends GLScreen implements TouchEventCallback {
 
     public ChooseModelScreen(Game game) {
 	super(game);
-	Log.d("TEST", "[ChooseModelScreen] STARTING CHOOSE MODEL SCREEN...");
 
 	if (Settings.musicEnabled && !Assets.mainMenuBGM.isPlaying())
 	    Assets.mainMenuBGM.play();
@@ -55,7 +52,7 @@ public class ChooseModelScreen extends GLScreen implements TouchEventCallback {
 	sundotKulangotModel.touchCallback = this;
 	addChild(sundotKulangotModel);
 
-	pastillasModel = new Sprite(new TextureRegion(Assets.pastillasOneBlue, 0, 0, 128, 98));
+	pastillasModel = new Sprite(new TextureRegion(Assets.pastillasBlue, 0, 0, 128, 98));
 	pastillasModel.y = (320 - pastillasModel.height) / 2;
 	pastillasModel.visible = false;
 	pastillasModel.touchCallback = this;
@@ -102,7 +99,6 @@ public class ChooseModelScreen extends GLScreen implements TouchEventCallback {
 	proceed.tapSound = Assets.confirm;
 	addChild(proceed);
 
-	// Tween the displays
 	label.alpha = 0f;
 	label.move(label.x, label.y, 1f, 1f, 0, 1f, Linear.INOUT, 250, 0, false);
 
@@ -119,8 +115,6 @@ public class ChooseModelScreen extends GLScreen implements TouchEventCallback {
 	right.scaleX = 0.2f;
 	right.scaleY = 0.2f;
 	right.move(373, 130, 1.0f, 1.0f, right.rotation, 1f, Back.OUT, 250, 0, false);
-
-	Log.d("TEST", "[ChooseModelScreen] Type is now " + currentIndex);
     }
 
     @Override
@@ -145,13 +139,10 @@ public class ChooseModelScreen extends GLScreen implements TouchEventCallback {
 
     @Override
     public void dispose() {
-
     }
 
     @Override
     public void menuPressed() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
@@ -246,8 +237,6 @@ public class ChooseModelScreen extends GLScreen implements TouchEventCallback {
 		yemaModel.move((480 - yemaModel.width) / 2, yemaModel.y, 1f, 1f, 0, 1f, Linear.INOUT, 250, 0, false);
 		break;
 	}
-	Log.d("TEST", "[ChooseModelScreen] Left Button Tapped!");
-	Log.d("TEST", "[ChooseModelScreen] Type is now " + currentIndex);
     }
 
     private void rightButtonTapped() {
@@ -301,8 +290,6 @@ public class ChooseModelScreen extends GLScreen implements TouchEventCallback {
 		sundotKulangotModel.move((480 - yemaModel.width) / 2, yemaModel.y, 1f, 1f, 0, 1f, Linear.INOUT, 250, 0, false);
 		break;
 	}
-	Log.d("TEST", "[ChooseModelScreen] Right Button Tapped!");
-	Log.d("TEST", "[ChooseModelScreen] Type is now " + currentIndex);
     }
 
 }

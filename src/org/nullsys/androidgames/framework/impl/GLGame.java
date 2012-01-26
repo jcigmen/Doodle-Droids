@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
@@ -107,17 +106,14 @@ public abstract class GLGame extends Activity implements Game, Renderer {
 	try {
 	    switch (saveSlot) {
 		case 1:
-		    Log.d("TEST", "[GLGame] Reading slot 1 game save data...");
 		    droidItems = new ObjectInputStream(fileIO.readFile(".droid1i"));
 		    droidStats = new ObjectInputStream(fileIO.readFile(".droid1"));
 		    break;
 		case 2:
-		    Log.d("TEST", "[GLGame] Reading slot 2 game save data...");
 		    droidItems = new ObjectInputStream(fileIO.readFile(".droid2i"));
 		    droidStats = new ObjectInputStream(fileIO.readFile(".droid2"));
 		    break;
 		case 3:
-		    Log.d("TEST", "[GLGame] Reading slot 3 game save data...");
 		    droidItems = new ObjectInputStream(fileIO.readFile(".droid3i"));
 		    droidStats = new ObjectInputStream(fileIO.readFile(".droid3"));
 		    break;
@@ -126,25 +122,11 @@ public abstract class GLGame extends Activity implements Game, Renderer {
 	    }
 
 	    if (droidItems != null && droidStats != null) {
-		Log.d("TEST", "[GLGame] Reading game save data...");
 		int type = Integer.parseInt(droidStats.readLine());
 		int color = Integer.parseInt(droidStats.readLine());
 
-		switch (type) {
-		    case DoodleDroid.PASTILLAS:
-			Log.d("TEST", "[GLGame] Droid is type PASTILLAS!");
-			break;
-		    case DoodleDroid.SUNDOT_KULANGOT:
-			Log.d("TEST", "[GLGame] Droid is type SUNDOT KULANGOT!");
-			break;
-		    case DoodleDroid.YEMA:
-			Log.d("TEST", "[GLGame] Droid is type YEMA!");
-			break;
-		}
-
 		droid = new DoodleDroid(type, color);
 
-		// Bind the stats
 		droid.name = droidStats.readLine();
 		droid.level = Integer.parseInt(droidStats.readLine());
 		droid.exp = Integer.parseInt(droidStats.readLine());
@@ -163,7 +145,6 @@ public abstract class GLGame extends Activity implements Game, Renderer {
 
 		droid.state = droid.hasVirus || droid.hasWorm || droid.hasHardwareFailure ? State.SICK_IDLE : State.NORMAL_IDLE;
 
-		// Load the items
 		int size = Integer.parseInt(droidItems.readLine());
 		for (int index = 0; index < size; index++)
 		    droid.usableItems.add(ItemFactory.getInventoryItem(droidItems.readLine()));
@@ -174,15 +155,10 @@ public abstract class GLGame extends Activity implements Game, Renderer {
 		droid.apparel = (Apparel) ItemFactory.getEquippable(droidItems.readLine());
 	    }
 	} catch (NumberFormatException e) {
-	    Log.d("TEST", "[GLGame] NFE @ load(int)!");
 	} catch (NullPointerException e) {
-	    Log.d("TEST", "[GLGame] NPE @ load(int)!");
 	} catch (FileNotFoundException e) {
-	    Log.d("TEST", "[GLGame] FNFE @ load(int)!");
 	} catch (IOException e) {
-	    Log.d("TEST", "[GLGame] OMG @ load(int)! Error: " + e.getMessage());
 	} catch (Exception e) {
-	    Log.d("TEST", "[GLGame] OMG @ load(int)! Error: " + e.getMessage());
 	} finally {
 	    try {
 		if (droidItems != null)
@@ -206,21 +182,15 @@ public abstract class GLGame extends Activity implements Game, Renderer {
 	    world.worldHours = Integer.parseInt(in.readLine());
 	    in.close();
 	} catch (NullPointerException e) {
-	    Log.d("TEST", "[GLGame] NPE @ loadSettings()");
 	} catch (FileNotFoundException e) {
-	    Log.d("TEST", "[GLGame] .settings file not found");
 	} catch (IOException e) {
-	    Log.d("TEST", "[GLGame] OMG @ loadSettings()" + e);
 	} catch (Exception e) {
-	    Log.d("TEST", "[GLGame] OMG @ loadSettings()! Error: " + e.getMessage());
 	}
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
-
-	Log.d("TEST", "[GLGame] Activity created!");
 
 	requestWindowFeature(Window.FEATURE_NO_TITLE);
 	getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -240,7 +210,6 @@ public abstract class GLGame extends Activity implements Game, Renderer {
 	float screenHeight = getWindowManager().getDefaultDisplay().getHeight();
 	float scaleX = 480 / screenWidth;
 	float scaleY = 320 / screenHeight;
-	Log.d("TEST", "[GLGame] Finished instantiating materials!");
 	input = new AndroidInput(this, glView, scaleX, scaleY);
 
 	Tween.setPoolEnabled(true);
@@ -346,7 +315,6 @@ public abstract class GLGame extends Activity implements Game, Renderer {
     public void save(GameSaveCallback callback) {
 	try {
 	    if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-		// Save the current doodle droid.
 		ObjectOutputStream droidStats = null, droidItems = null;
 		switch (Settings.saveSlot) {
 		    case 1:
@@ -366,9 +334,6 @@ public abstract class GLGame extends Activity implements Game, Renderer {
 			callback.onNoSlotSelected();
 			return;
 		}
-		Log.d("TEST", "[GLGame] Saving Droid...");
-
-		Log.d("TEST", "[GLGame] Writing Items Data...");
 		droidItems.writeBytes("" + droid.usableItems.size() + "\n");
 		for (int index = 0; index < droid.usableItems.size(); index++)
 		    droidItems.writeBytes(droid.usableItems.get(index).name + "\n");
@@ -379,17 +344,14 @@ public abstract class GLGame extends Activity implements Game, Renderer {
 		try {
 		    droidItems.writeBytes(droid.headgear.name + "\n");
 		} catch (NullPointerException e) {
-		    Log.d("TEST", "[GLGame] Droid Headgear is NULL!");
 		}
 
 		try {
 		    droidItems.writeBytes(droid.apparel.name + "\n");
 		} catch (NullPointerException e) {
-		    Log.d("TEST", "[GLGame] Droid Apparel is NULL!");
 		}
 		droidItems.close();
 
-		Log.d("TEST", "[GLGame] Writing Statistics...");
 		droidStats.writeBytes("" + droid.type + "\n");
 		droidStats.writeBytes("" + droid.color + "\n");
 		droidStats.writeBytes("" + droid.name + "\n");
@@ -411,11 +373,8 @@ public abstract class GLGame extends Activity implements Game, Renderer {
 	    } else
 		callback.onSdCardNotFound();
 	} catch (NullPointerException e) {
-	    Log.d("TEST", "[GLGame] NPE @ save(GameSaveCallback)");
 	} catch (FileNotFoundException e) {
-	    Log.d("TEST", "[GLGame] FNE @ save(GameSaveCallback)" + e);
 	} catch (IOException e) {
-	    Log.d("TEST", "[GLGame] OMG @ save(GameSaveCallback)");
 	}
     }
 
@@ -431,11 +390,8 @@ public abstract class GLGame extends Activity implements Game, Renderer {
 	    out.writeBytes("" + world.worldHours + "\n");
 	    out.close();
 	} catch (NullPointerException e) {
-	    Log.d("TEST", "NPE @ Game Settings Save!");
 	} catch (FileNotFoundException e) {
-	    Log.d("TEST", "File not found!");
 	} catch (IOException e) {
-	    Log.d("TEST", "There was some kind of an error saving... " + e);
 	}
     }
 

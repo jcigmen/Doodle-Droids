@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 
 import android.graphics.Color;
-import android.util.Log;
 
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenCallback;
@@ -114,7 +113,6 @@ public class LoadDoodleDroidScreen extends GLScreen implements TouchEventCallbac
 	droidName.y = 50;
 	addChild(droidName);
 
-	// Tween the displays
 	back.x = 0 - back.width;
 	back.move(new VectorCoords(12, 11), Back.OUT, 250, 0, false);
 	proceed.x = 480 + proceed.width;
@@ -151,7 +149,6 @@ public class LoadDoodleDroidScreen extends GLScreen implements TouchEventCallbac
 
     @Override
     public void dispose() {
-
     }
 
     @SuppressWarnings("unused")
@@ -161,15 +158,12 @@ public class LoadDoodleDroidScreen extends GLScreen implements TouchEventCallbac
 	    ObjectInputStream droidStats = null, droidItems = null;
 	    switch (saveSlot) {
 		case 1:
-		    Log.d("TEST", "[LoadDoodleDroidScreen] Reading slot 1 game save data...");
 		    droidStats = new ObjectInputStream(game.getFileIO().readFile(".droid1"));
 		    break;
 		case 2:
-		    Log.d("TEST", "[LoadDoodleDroidScreen] Reading slot 2 game save data...");
 		    droidStats = new ObjectInputStream(game.getFileIO().readFile(".droid2"));
 		    break;
 		case 3:
-		    Log.d("TEST", "[LoadDoodleDroidScreen] Reading slot 3 game save data...");
 		    droidStats = new ObjectInputStream(game.getFileIO().readFile(".droid3"));
 		    break;
 		default:
@@ -196,7 +190,6 @@ public class LoadDoodleDroidScreen extends GLScreen implements TouchEventCallbac
 
 		switch (type) {
 		    case DoodleDroid.SUNDOT_KULANGOT:
-			Log.d("TEST", "[LoadDoodleDroidScreen] Type is PASTILLAS.");
 			switch (color) {
 			    case Color.GREEN:
 				droid = new Sprite(new TextureRegion(Assets.models, 86, 82, 86, 84));
@@ -217,7 +210,6 @@ public class LoadDoodleDroidScreen extends GLScreen implements TouchEventCallbac
 			}
 			break;
 		    case DoodleDroid.PASTILLAS:
-			Log.d("TEST", "[LoadDoodleDroidScreen] Type is SK.");
 			switch (color) {
 			    case Color.GREEN:
 				droid = new Sprite(new TextureRegion(Assets.models, 92, 0, 92, 82));
@@ -238,7 +230,6 @@ public class LoadDoodleDroidScreen extends GLScreen implements TouchEventCallbac
 			}
 			break;
 		    case DoodleDroid.YEMA:
-			Log.d("TEST", "[LoadDoodleDroidScreen] Type is YEMA.");
 			switch (color) {
 			    case Color.GREEN:
 				droid = new Sprite(new TextureRegion(Assets.models, 86, 82, 86, 84));
@@ -259,46 +250,23 @@ public class LoadDoodleDroidScreen extends GLScreen implements TouchEventCallbac
 			}
 			break;
 		    default:
-			Log.d("TEST", "[LoadDoodleDroidScreen] No Type was selected!.");
 		}
-	    } else
-		Log.d("TEST", "[LoadDoodleDroidSCreen] DroidStats NULL!");
+	    }
 	} catch (NumberFormatException e) {
-	    Log.d("TEST", "[LoadDoodleDroidSCreen] NFE @ load(int)!");
 	} catch (NullPointerException e) {
-	    Log.d("TEST", "[LoadDoodleDroidSCreen] NPE @ load(int)!");
 	} catch (FileNotFoundException e) {
-	    Log.d("TEST", "[LoadDoodleDroidSCreen] FNFE @ load(int)!");
 	} catch (IOException e) {
-	    Log.d("TEST", "[LoadDoodleDroidSCreen] OMG @ load(int)! Error: " + e.getMessage());
 	} catch (Exception e) {
-	    Log.d("TEST", "[LoadDoodleDroidSCreen] OMG @ load(int)! Error: " + e.getMessage());
 	}
 	return droid;
     }
 
     @Override
     public void menuPressed() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
     public void onLoad() {
-	switch (loadedDroid.type) {
-	    case DoodleDroid.SUNDOT_KULANGOT:
-		Log.d("TEST", "[LoadDoodleDroidSCreen] Loaded Droid is PASTILLAS type!");
-		break;
-	    case DoodleDroid.PASTILLAS:
-		Log.d("TEST", "[LoadDoodleDroidSCreen] Loaded Droid is SK type!");
-		break;
-	    case DoodleDroid.YEMA:
-		Log.d("TEST", "[LoadDoodleDroidSCreen] Loaded Droid is YEMA type!");
-		break;
-	    default:
-		Log.d("TEST", "[LoadDoodleDroidSCreen] Loaded Droid is NULL!");
-	}
-
 	game.setDroid(loadedDroid);
 	game.setScreen(new StageScreen(game, WorldMapScreen.HOME));
 	Assets.mainMenuBGM.pause();
@@ -381,9 +349,7 @@ public class LoadDoodleDroidScreen extends GLScreen implements TouchEventCallbac
 	}
     }
 
-    /** Load the saved Doodle Droids and show them in the display. */
     private void loadSavedDroids() {
-
 	droidOne = game.load(1);
 	if (droidOne != null) {
 	    droidOne.x = shadowOne.x + shadowOne.width / 2 - droidOne.getDisplayByState().width / 2;

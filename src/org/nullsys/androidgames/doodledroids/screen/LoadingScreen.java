@@ -1,7 +1,5 @@
 package org.nullsys.androidgames.doodledroids.screen;
 
-import android.util.Log;
-
 import org.nullsys.androidgames.doodledroids.Assets;
 import org.nullsys.androidgames.framework.display.text.Text;
 import org.nullsys.androidgames.framework.impl.GLGame;
@@ -20,7 +18,6 @@ public class LoadingScreen extends GLScreen {
 
     public LoadingScreen(GLGame game, LoadingScreenCallback loadScreenCallback) {
 	super(game);
-	Log.d("TEST", "[LoadingScreen] STARTING LOADING SCREEN...");
 
 	this.loadScreenCallback = loadScreenCallback;
 
@@ -32,29 +29,22 @@ public class LoadingScreen extends GLScreen {
 
     @Override
     public void backPressed() {
-
     }
 
     @Override
     public void dispose() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
     public void menuPressed() {
-	// TODO Auto-generated method stub
     }
 
     @Override
     public void pause() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
     public void resume() {
-
     }
 
     @Override

@@ -3,7 +3,6 @@ package org.nullsys.androidgames.framework.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -23,7 +22,6 @@ public class MultiTouchHandler implements TouchHandler {
     float scaleY;
 
     public MultiTouchHandler(View view, float scaleX, float scaleY) {
-	Log.d("TEST", "[MultiTouchHandler] Instantiating...");
 	PoolObjectFactory<TouchEvent> factory = new PoolObjectFactory<TouchEvent>() {
 
 	    @Override

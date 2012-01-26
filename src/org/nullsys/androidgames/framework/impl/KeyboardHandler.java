@@ -3,7 +3,6 @@ package org.nullsys.androidgames.framework.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnKeyListener;
 
@@ -19,7 +18,6 @@ public class KeyboardHandler implements OnKeyListener {
     List<KeyEvent> keyEvents = new ArrayList<KeyEvent>();
 
     public KeyboardHandler(View view) {
-	Log.d("TEST", "[KeyboardHandler] Instantiating...");
 	PoolObjectFactory<KeyEvent> factory = new PoolObjectFactory<KeyEvent>() {
 
 	    @Override

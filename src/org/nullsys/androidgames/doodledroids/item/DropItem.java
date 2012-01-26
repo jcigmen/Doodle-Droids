@@ -15,20 +15,15 @@ public class DropItem extends Item {
     }
 
     @Override
-    public void update(float deltaTime) {
-	// TODO Auto-generated method stub
-
-    }
-
-    @Override
     public void checkInputs(int eventType, int eventX, int eventY) {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
     public TextureRegion getTextureRegion() {
-	// TODO Auto-generated method stub
 	return null;
+    }
+
+    @Override
+    public void update(float deltaTime) {
     }
 }

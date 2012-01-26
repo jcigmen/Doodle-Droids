@@ -1,7 +1,5 @@
 package org.nullsys.androidgames.doodledroids.quest;
 
-import android.util.Log;
-
 import org.nullsys.androidgames.doodledroids.DoodleDroid;
 import org.nullsys.androidgames.doodledroids.event.QuestEventCallback;
 import org.nullsys.androidgames.doodledroids.item.InventoryItem;
@@ -46,20 +44,17 @@ public class Quest {
 	    else if (!droidHasRequiredItems(droid))
 		callback.onItemsInsufficient();
 	    else {
-		Log.d("TEST", "Triggering Quest: " + name);
 		droid.addExp(exp);
 		droid.energy -= requiredEnergy;
 		droid.health -= requiredHealth;
 		droid.droills += droills;
 
-		// Roll the chances of getting a drop item.
 		for (int itemIndex = 0; itemIndex < dropItems.length; itemIndex++)
 		    if (Math.random() * 101 <= dropRate) {
 			droid.usableItems.add(dropItems[itemIndex]);
 			callback.onItemDrop(dropItems[itemIndex].name);
 		    }
 
-		// Deduct the required items from the inventory of the Droid.
 		for (int requiredItemsIndex = 0; requiredItemsIndex < requiredItems.length; requiredItemsIndex++)
 		    for (int itemIndex = 0; itemIndex < droid.usableItems.size(); itemIndex++)
 			if (droid.usableItems.get(itemIndex).id == requiredItems[requiredItemsIndex].id) {
@@ -67,10 +62,8 @@ public class Quest {
 			    itemIndex = droid.usableItems.size();
 			}
 
-		Log.d("TEST", "Quest triggered succesfully!");
 	    }
 	} catch (NullPointerException e) {
-	    Log.d("TEST", "Quest NPE: " + e);
 	}
     }
 
@@ -81,7 +74,6 @@ public class Quest {
 		for (int itemIndex = 0; itemIndex < droid.usableItems.size(); itemIndex++)
 		    if (droid.usableItems.get(itemIndex).id == requiredItems[requiredItemsIndex].id)
 			quantityInInventory++;
-		// The current item in the collection loop was not found, terminate the method already.
 		if (quantityInInventory == 0)
 		    return false;
 		quantityInInventory = 0;

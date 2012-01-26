@@ -17,8 +17,6 @@ public class Headgear extends Item implements EquippableItem {
 
     @Override
     public void checkInputs(int eventType, int eventX, int eventY) {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
@@ -79,9 +77,6 @@ public class Headgear extends Item implements EquippableItem {
     @Override
     public void update(float deltaTime) {
 	manager.update();
-	if (enabled) {
-
-	}
     }
 
 }

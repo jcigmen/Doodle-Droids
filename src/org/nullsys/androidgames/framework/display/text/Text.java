@@ -1,7 +1,5 @@
 package org.nullsys.androidgames.framework.display.text;
 
-import android.util.Log;
-
 import org.nullsys.androidgames.framework.display.DisplayObject;
 import org.nullsys.androidgames.framework.display.SpriteBatcher;
 import org.nullsys.androidgames.framework.display.TextureRegion;
@@ -9,7 +7,6 @@ import org.nullsys.androidgames.framework.display.TextureRegion;
 public class Text extends DisplayObject {
 
     public static enum TextRegistration {
-
 	LEFT, CENTER, RIGHT
     }
 
@@ -28,8 +25,6 @@ public class Text extends DisplayObject {
 
     @Override
     public void checkInputs(int eventType, int eventX, int eventY) {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
@@ -57,7 +52,6 @@ public class Text extends DisplayObject {
 			returnCount++;
 		String[] lines = new String[returnCount];
 
-		// Clear the string array so it does not start with null
 		for (int lineIndex = 0; lineIndex < lines.length; lineIndex++)
 		    lines[lineIndex] = "";
 
@@ -68,7 +62,6 @@ public class Text extends DisplayObject {
 		    else
 			linesIndex++;
 
-		// Determine the longest line in the paragraph
 		int longestCharLine = 0;
 		int longestCharLineIndex = 0;
 		for (int index = 0; index < lines.length; index++)
@@ -87,7 +80,6 @@ public class Text extends DisplayObject {
 			returnCount++;
 		lines = new String[returnCount];
 
-		// Clear the string array so it does not start with null
 		for (int lineIndex = 0; lineIndex < lines.length; lineIndex++)
 		    lines[lineIndex] = "";
 
@@ -98,7 +90,6 @@ public class Text extends DisplayObject {
 		    else
 			linesIndex++;
 
-		// Determine the longest line in the paragraph
 		longestCharLine = 0;
 		longestCharLineIndex = 0;
 		for (int index = 0; index < lines.length; index++)
@@ -127,7 +118,6 @@ public class Text extends DisplayObject {
 			    returnCount++;
 		    String[] lines = new String[returnCount];
 
-		    // Clear the string array so it does not start with null
 		    for (int lineIndex = 0; lineIndex < lines.length; lineIndex++)
 			lines[lineIndex] = "";
 
@@ -161,8 +151,7 @@ public class Text extends DisplayObject {
 				batcher.drawSprite(offsetX, offsetY - height * scaleY / 2, font.getChar(lines[lineIndex].charAt(charIndex)).width, font.glyphHeight * scaleY, scaleX, scaleY, rotation, font.getChar(lines[lineIndex].charAt(charIndex)));
 				batcher.endBatch();
 				offsetX += font.getChar(lines[lineIndex].charAt(charIndex)).width * scaleX;
-			    } else
-				Log.d("TEST", "No text to render!");
+			    }
 			offsetY -= font.glyphHeight * scaleY;
 		    }
 		    break;
@@ -189,7 +178,6 @@ public class Text extends DisplayObject {
 			    returnCount++;
 		    lines = new String[returnCount];
 
-		    // Clear the string array so it does not start with null
 		    for (int lineIndex = 0; lineIndex < lines.length; lineIndex++)
 			lines[lineIndex] = "";
 
@@ -200,7 +188,6 @@ public class Text extends DisplayObject {
 			else
 			    linesIndex++;
 
-		    // Determine the x-offset
 		    int longestCharLine = 0;
 		    int longestCharLineIndex = 0;
 		    for (int index = 0; index < lines.length; index++)

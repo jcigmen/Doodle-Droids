@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 
 import android.graphics.Color;
-import android.util.Log;
 
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenCallback;
@@ -57,7 +56,6 @@ public class ChooseSaveSlotScreen extends GLScreen implements GameSaveCallback, 
 
     public ChooseSaveSlotScreen(Game game, int modelType, int color) {
 	super(game);
-	Log.d("TEST", "STARTING CHOOSE SAVE SLOT SCREEN...");
 
 	if (Settings.musicEnabled && !Assets.mainMenuBGM.isPlaying())
 	    Assets.mainMenuBGM.play();
@@ -122,7 +120,6 @@ public class ChooseSaveSlotScreen extends GLScreen implements GameSaveCallback, 
 	proceed.tapSound = Assets.confirm;
 	addChild(proceed);
 
-	// Tween the displays
 	label.y = 294;
 	label.alpha = 0f;
 	label.move(140, 274, 1f, 1f, 0, 1f, Back.OUT, 800, 0, false);
@@ -138,7 +135,6 @@ public class ChooseSaveSlotScreen extends GLScreen implements GameSaveCallback, 
 
     @Override
     public void dispose() {
-
     }
 
     public void exit() {
@@ -166,15 +162,12 @@ public class ChooseSaveSlotScreen extends GLScreen implements GameSaveCallback, 
 	    ObjectInputStream droidStats = null, droidItems = null;
 	    switch (saveSlot) {
 		case 1:
-		    Log.d("TEST", "[ChooseSaveSlotScreen] Reading slot 1 game save data...");
 		    droidStats = new ObjectInputStream(game.getFileIO().readFile(".droid1"));
 		    break;
 		case 2:
-		    Log.d("TEST", "[ChooseSaveSlotScreen] Reading slot 2 game save data...");
 		    droidStats = new ObjectInputStream(game.getFileIO().readFile(".droid2"));
 		    break;
 		case 3:
-		    Log.d("TEST", "[ChooseSaveSlotScreen] Reading slot 3 game save data...");
 		    droidStats = new ObjectInputStream(game.getFileIO().readFile(".droid3"));
 		    break;
 		default:
@@ -196,13 +189,11 @@ public class ChooseSaveSlotScreen extends GLScreen implements GameSaveCallback, 
 			droidThreeName = droidStats.readLine();
 			break;
 		    default:
-			Log.d("TEST", "[ChooseSaveSlotScreen] No Saveslot selected!");
 		}
 		droidStats.close();
 
 		switch (type) {
 		    case DoodleDroid.SUNDOT_KULANGOT:
-			Log.d("TEST", "[ChooseSaveSlotScreen] Type is PASTILLAS.");
 			switch (color) {
 			    case Color.GREEN:
 				droid = new Sprite(new TextureRegion(Assets.models, 86, 82, 86, 84));
@@ -223,7 +214,6 @@ public class ChooseSaveSlotScreen extends GLScreen implements GameSaveCallback, 
 			}
 			break;
 		    case DoodleDroid.PASTILLAS:
-			Log.d("TEST", "[ChooseSaveSlotScreen] Type is SK.");
 			switch (color) {
 			    case Color.GREEN:
 				droid = new Sprite(new TextureRegion(Assets.models, 92, 0, 92, 82));
@@ -244,7 +234,6 @@ public class ChooseSaveSlotScreen extends GLScreen implements GameSaveCallback, 
 			}
 			break;
 		    case DoodleDroid.YEMA:
-			Log.d("TEST", "[ChooseSaveSlotScreen] Type is YEMA.");
 			switch (color) {
 			    case Color.GREEN:
 				droid = new Sprite(new TextureRegion(Assets.models, 86, 82, 86, 84));
@@ -265,43 +254,23 @@ public class ChooseSaveSlotScreen extends GLScreen implements GameSaveCallback, 
 			}
 			break;
 		    default:
-			Log.d("TEST", "[ChooseSaveSlotScreen] No Type was selected!.");
 		}
-	    } else
-		Log.d("TEST", "[ChooseSaveSlotSCreen] DroidStats NULL!");
+	    }
 	} catch (NumberFormatException e) {
-	    Log.d("TEST", "[ChooseSaveSlotSCreen] NFE @ load(int)!");
 	} catch (NullPointerException e) {
-	    Log.d("TEST", "[ChooseSaveSlotSCreen] NPE @ load(int)!");
 	} catch (FileNotFoundException e) {
-	    Log.d("TEST", "[ChooseSaveSlotSCreen] FNFE @ load(int)!");
 	} catch (IOException e) {
-	    Log.d("TEST", "[ChooseSaveSlotSCreen] OMG @ load(int)! Error: " + e.getMessage());
 	} catch (Exception e) {
-	    Log.d("TEST", "[ChooseSaveSlotSCreen] OMG @ load(int)! Error: " + e.getMessage());
 	}
 	return droid;
     }
 
     @Override
     public void menuPressed() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
     public void onLoad() {
-	/*switch (modelType) {
-	    case DoodleDroid.PASTILLAS:
-		Assets.loadPastillasDroids();
-		break;
-	    case DoodleDroid.SUNDOT_KULANGOT:
-		Assets.loadSundotKulangotDroids();
-		break;
-	    case DoodleDroid.YEMA:
-		Assets.loadYemaDroids();
-		break;
-	}*/
 	game.setDroid(new DoodleDroid(modelType, color));
 	game.save(this);
 	game.setScreen(new StageScreen(game, WorldMapScreen.HOME));
@@ -310,20 +279,14 @@ public class ChooseSaveSlotScreen extends GLScreen implements GameSaveCallback, 
 
     @Override
     public void onNoSlotSelected() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
     public void onSdCardNotFound() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
     public void onSlotOccupied() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
@@ -385,9 +348,7 @@ public class ChooseSaveSlotScreen extends GLScreen implements GameSaveCallback, 
 	}
     }
 
-    /** Load the saved Doodle Droids and show them in the display. */
     private void loadSavedDroids() {
-
 	droidOne = game.load(1);
 	if (droidOne != null) {
 	    droidOne.x = shadowOne.x + shadowOne.width / 2 - droidOne.getDisplayByState().width / 2;
@@ -423,30 +384,22 @@ public class ChooseSaveSlotScreen extends GLScreen implements GameSaveCallback, 
 	    case 1:
 		if (droidOne != null)
 		    game.setScreen(new PromptScreen(game, this, PromptScreen.YES_NO_PROMPT, "SLOT ALREADY USED.\nOVERWRITE SAVE SLOT?"));
-		else {
-		    Log.d("TEST", "[ChooseSaveSlotScreen] Saving to Slot 1...");
+		else
 		    game.setScreen(new LoadingScreen((GLGame) game, this));
-		}
 		break;
 	    case 2:
 		if (droidTwo != null)
 		    game.setScreen(new PromptScreen(game, this, PromptScreen.YES_NO_PROMPT, "SLOT ALREADY USED.\nOVERWRITE SAVE SLOT?"));
-		else {
-		    Log.d("TEST", "[ChooseSaveSlotScreen] Saving to Slot 2...");
+		else
 		    game.setScreen(new LoadingScreen((GLGame) game, this));
-		}
 		break;
 	    case 3:
 		if (droidThree != null)
 		    game.setScreen(new PromptScreen(game, this, PromptScreen.YES_NO_PROMPT, "SLOT ALREADY USED.\nOVERWRITE SAVE SLOT?"));
-		else {
-		    Log.d("TEST", "[ChooseSaveSlotScreen] Saving to Slot 3...");
+		else
 		    game.setScreen(new LoadingScreen((GLGame) game, this));
-		}
 		break;
 	    default:
-		Log.d("TEST", "[ChooseSaveSlotScreen] No save slot selected!");
-
 	}
     }
 

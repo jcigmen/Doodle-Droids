@@ -1,6 +1,5 @@
 package org.nullsys.androidgames.framework.display;
 
-
 public class TextureRegion {
 
     public final float u1, v1;

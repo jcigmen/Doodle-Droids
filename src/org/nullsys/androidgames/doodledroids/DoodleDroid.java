@@ -3,7 +3,6 @@ package org.nullsys.androidgames.doodledroids;
 import java.util.ArrayList;
 
 import android.graphics.Color;
-import android.util.Log;
 
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenCallback;
@@ -171,8 +170,6 @@ public class DoodleDroid extends DisplayObject implements TweenCallback {
 			if (touchCallback != null)
 			    touchCallback.onTouchEvent(this, touchEvent);
 			if (dragged && draggable) {
-			    Log.d("TEST", "EvtX: " + (eventX - previousX));
-			    Log.d("TEST", "EvtY: " + (320 - eventY));
 			    if (dragX)
 				x += eventX - previousEventX;
 			    if (dragY)
@@ -638,7 +635,6 @@ public class DoodleDroid extends DisplayObject implements TweenCallback {
 		apparel.render(batcher);
 	    }
 	} catch (NullPointerException e) {
-	    Log.d("TEST", "DoodeDroid: NPE @ render(SpriteBatcher)");
 	}
     }
 
@@ -650,13 +646,10 @@ public class DoodleDroid extends DisplayObject implements TweenCallback {
     }
 
     public void restoreEnergy(int energy) {
-	if (this.energy + energy <= getEnergyTotal()) {
-	    Log.d("TEST", "[DoodleDroid] Restored " + energy + " energy!");
+	if (this.energy + energy <= getEnergyTotal())
 	    this.energy += energy;
-	} else {
-	    Log.d("TEST", "[DoodleDroid] Restored " + (getEnergyTotal() - this.energy) + " energy!");
+	else
 	    this.energy = getEnergyTotal();
-	}
     }
 
     public void restoreHealth(int healthPlus) {
@@ -674,206 +667,194 @@ public class DoodleDroid extends DisplayObject implements TweenCallback {
 
     @Override
     public void update(float deltaTime) {
-
 	if (enabled)
 	    manager.update();
 	try {
 	    if (!tapped && enabled)
 		getDisplayByState().update(deltaTime);
 	} catch (NullPointerException e) {
-	    Log.d("TEST", "[DoodeDroid] NPE @ update(float)");
 	}
     }
 
     private void init() {
 	switch (color) {
 	    case Color.BLUE:
-		Log.d("TEST", "[DoodleDroid] Selected Blue!");
 		switch (type) {
 		    case YEMA:
-			normalIdleLeft = new Animation(Assets.yemaOneBlue, 0, 0, 87, 97, 8, 16, .24f);
-			normalIdleRight = new Animation(Assets.yemaOneBlue, 0, 0, 87, 97, 8, 16, .24f);
-			normalWalkingLeft = new Animation(Assets.yemaOneBlue, 0, 585, 87, 98, 8, 8, 0.125f);
-			normalWalkingRight = new Animation(Assets.yemaOneBlue, 0, 487, 87, 98, 8, 8, 0.125f);
-			sickIdleLeft = new Animation(Assets.yemaOneBlue, 0, 195, 87, 97, 8, 8, 0.125f);
-			sickIdleRight = new Animation(Assets.yemaOneBlue, 0, 195, 87, 97, 8, 8, 0.125f);
-			sickWalkingRight = new Animation(Assets.yemaOneBlue, 0, 293, 87, 98, 8, 8, 0.125f);
-			sickWalkingLeft = new Animation(Assets.yemaOneBlue, 0, 390, 87, 98, 8, 8, 0.125f);
+			normalIdleLeft = new Animation(Assets.yemaBlue, 0, 0, 87, 97, 8, 16, .24f);
+			normalIdleRight = new Animation(Assets.yemaBlue, 0, 0, 87, 97, 8, 16, .24f);
+			normalWalkingLeft = new Animation(Assets.yemaBlue, 0, 585, 87, 98, 8, 8, 0.125f);
+			normalWalkingRight = new Animation(Assets.yemaBlue, 0, 487, 87, 98, 8, 8, 0.125f);
+			sickIdleLeft = new Animation(Assets.yemaBlue, 0, 195, 87, 97, 8, 8, 0.125f);
+			sickIdleRight = new Animation(Assets.yemaBlue, 0, 195, 87, 97, 8, 8, 0.125f);
+			sickWalkingRight = new Animation(Assets.yemaBlue, 0, 293, 87, 98, 8, 8, 0.125f);
+			sickWalkingLeft = new Animation(Assets.yemaBlue, 0, 390, 87, 98, 8, 8, 0.125f);
 			break;
 		    case SUNDOT_KULANGOT:
-			normalIdleLeft = new Animation(Assets.sundotKulangotOneBlue, 0, 0, 92, 82, 8, 16, .24f);
-			normalWalkingLeft = new Animation(Assets.sundotKulangotOneBlue, 0, 474, 92, 114, 8, 8, 0.125f);
-			normalIdleRight = new Animation(Assets.sundotKulangotOneBlue, 0, 0, 92, 82, 8, 16, .24f);
-			normalWalkingRight = new Animation(Assets.sundotKulangotOneBlue, 0, 360, 92, 114, 8, 8, 0.125f);
-			sickIdleLeft = new Animation(Assets.sundotKulangotOneBlue, 0, 164, 92, 82, 8, 8, 0.125f);
-			sickWalkingRight = new Animation(Assets.sundotKulangotOneBlue, 0, 247, 92, 113, 8, 8, 0.125f);
-			sickWalkingLeft = new Animation(Assets.sundotKulangotOneBlue, 0, 589, 92, 114, 8, 8, 0.125f);
-			sickIdleRight = new Animation(Assets.sundotKulangotOneBlue, 0, 164, 92, 82, 8, 8, 0.125f);
+			normalIdleLeft = new Animation(Assets.sundotKulangotBlue, 0, 0, 92, 82, 8, 16, .24f);
+			normalWalkingLeft = new Animation(Assets.sundotKulangotBlue, 0, 474, 92, 114, 8, 8, 0.125f);
+			normalIdleRight = new Animation(Assets.sundotKulangotBlue, 0, 0, 92, 82, 8, 16, .24f);
+			normalWalkingRight = new Animation(Assets.sundotKulangotBlue, 0, 360, 92, 114, 8, 8, 0.125f);
+			sickIdleLeft = new Animation(Assets.sundotKulangotBlue, 0, 164, 92, 82, 8, 8, 0.125f);
+			sickWalkingRight = new Animation(Assets.sundotKulangotBlue, 0, 247, 92, 113, 8, 8, 0.125f);
+			sickWalkingLeft = new Animation(Assets.sundotKulangotBlue, 0, 589, 92, 114, 8, 8, 0.125f);
+			sickIdleRight = new Animation(Assets.sundotKulangotBlue, 0, 164, 92, 82, 8, 8, 0.125f);
 			break;
 		    case PASTILLAS:
-			normalIdleLeft = new Animation(Assets.pastillasOneBlue, 0, 0, 128, 98, 8, 16, .24f);
-			normalWalkingLeft = new Animation(Assets.pastillasOneBlue, 0, 588, 128, 99, 8, 8, 0.125f);
-			normalIdleRight = new Animation(Assets.pastillasOneBlue, 0, 0, 128, 98, 8, 16, .24f);
-			normalWalkingRight = new Animation(Assets.pastillasOneBlue, 0, 490, 128, 99, 8, 8, 0.125f);
-			sickIdleLeft = new Animation(Assets.pastillasOneBlue, 0, 196, 103, 128, 99, 8, 0.125f);
-			sickIdleRight = new Animation(Assets.pastillasOneBlue, 0, 196, 103, 128, 99, 8, 0.125f);
-			sickWalkingRight = new Animation(Assets.pastillasOneBlue, 0, 294, 128, 99, 8, 8, 0.125f);
-			sickWalkingLeft = new Animation(Assets.pastillasOneBlue, 0, 392, 128, 99, 8, 8, 0.125f);
+			normalIdleLeft = new Animation(Assets.pastillasBlue, 0, 0, 128, 98, 8, 16, .24f);
+			normalWalkingLeft = new Animation(Assets.pastillasBlue, 0, 588, 128, 99, 8, 8, 0.125f);
+			normalIdleRight = new Animation(Assets.pastillasBlue, 0, 0, 128, 98, 8, 16, .24f);
+			normalWalkingRight = new Animation(Assets.pastillasBlue, 0, 490, 128, 99, 8, 8, 0.125f);
+			sickIdleLeft = new Animation(Assets.pastillasBlue, 0, 196, 103, 128, 99, 8, 0.125f);
+			sickIdleRight = new Animation(Assets.pastillasBlue, 0, 196, 103, 128, 99, 8, 0.125f);
+			sickWalkingRight = new Animation(Assets.pastillasBlue, 0, 294, 128, 99, 8, 8, 0.125f);
+			sickWalkingLeft = new Animation(Assets.pastillasBlue, 0, 392, 128, 99, 8, 8, 0.125f);
 			break;
 		    default:
-			Log.d("TEST", "DoodleDroid: No Type was selected!");
 			break;
 		}
 		break;
 	    case Color.WHITE:
-		Log.d("TEST", "[DoodleDroid] Selected White!");
 		switch (type) {
 		    case YEMA:
-			normalIdleLeft = new Animation(Assets.yemaOneWhite, 0, 0, 87, 97, 8, 16, .24f);
-			normalIdleRight = new Animation(Assets.yemaOneWhite, 0, 0, 87, 97, 8, 16, .24f);
-			normalWalkingLeft = new Animation(Assets.yemaOneWhite, 0, 585, 87, 98, 8, 8, 0.125f);
-			normalWalkingRight = new Animation(Assets.yemaOneWhite, 0, 487, 87, 97, 8, 8, 0.125f);
-			sickIdleLeft = new Animation(Assets.yemaOneWhite, 0, 195, 87, 97, 8, 8, 0.125f);
-			sickIdleRight = new Animation(Assets.yemaOneWhite, 0, 195, 87, 97, 8, 8, 0.125f);
-			sickWalkingRight = new Animation(Assets.yemaOneWhite, 0, 293, 87, 98, 8, 8, 0.125f);
-			sickWalkingLeft = new Animation(Assets.yemaOneWhite, 0, 390, 87, 98, 8, 8, 0.125f);
+			normalIdleLeft = new Animation(Assets.yemaWhite, 0, 0, 87, 97, 8, 16, .24f);
+			normalIdleRight = new Animation(Assets.yemaWhite, 0, 0, 87, 97, 8, 16, .24f);
+			normalWalkingLeft = new Animation(Assets.yemaWhite, 0, 585, 87, 98, 8, 8, 0.125f);
+			normalWalkingRight = new Animation(Assets.yemaWhite, 0, 487, 87, 97, 8, 8, 0.125f);
+			sickIdleLeft = new Animation(Assets.yemaWhite, 0, 195, 87, 97, 8, 8, 0.125f);
+			sickIdleRight = new Animation(Assets.yemaWhite, 0, 195, 87, 97, 8, 8, 0.125f);
+			sickWalkingRight = new Animation(Assets.yemaWhite, 0, 293, 87, 98, 8, 8, 0.125f);
+			sickWalkingLeft = new Animation(Assets.yemaWhite, 0, 390, 87, 98, 8, 8, 0.125f);
 			break;
 		    case SUNDOT_KULANGOT:
-			normalIdleLeft = new Animation(Assets.sundotKulangotOneWhite, 0, 0, 92, 82, 8, 16, .24f);
-			normalWalkingLeft = new Animation(Assets.sundotKulangotOneWhite, 0, 474, 92, 114, 8, 8, 0.125f);
-			normalIdleRight = new Animation(Assets.sundotKulangotOneWhite, 0, 0, 92, 82, 8, 16, .24f);
-			normalWalkingRight = new Animation(Assets.sundotKulangotOneWhite, 0, 360, 92, 114, 8, 8, 0.125f);
-			sickIdleLeft = new Animation(Assets.sundotKulangotOneWhite, 0, 164, 92, 82, 8, 8, 0.125f);
-			sickWalkingRight = new Animation(Assets.sundotKulangotOneWhite, 0, 247, 92, 113, 8, 8, 0.125f);
-			sickWalkingLeft = new Animation(Assets.sundotKulangotOneWhite, 0, 589, 92, 114, 8, 8, 0.125f);
-			sickIdleRight = new Animation(Assets.sundotKulangotOneWhite, 0, 164, 92, 82, 8, 8, 0.125f);
+			normalIdleLeft = new Animation(Assets.sundotKulangotWhite, 0, 0, 92, 82, 8, 16, .24f);
+			normalWalkingLeft = new Animation(Assets.sundotKulangotWhite, 0, 474, 92, 114, 8, 8, 0.125f);
+			normalIdleRight = new Animation(Assets.sundotKulangotWhite, 0, 0, 92, 82, 8, 16, .24f);
+			normalWalkingRight = new Animation(Assets.sundotKulangotWhite, 0, 360, 92, 114, 8, 8, 0.125f);
+			sickIdleLeft = new Animation(Assets.sundotKulangotWhite, 0, 164, 92, 82, 8, 8, 0.125f);
+			sickWalkingRight = new Animation(Assets.sundotKulangotWhite, 0, 247, 92, 113, 8, 8, 0.125f);
+			sickWalkingLeft = new Animation(Assets.sundotKulangotWhite, 0, 589, 92, 114, 8, 8, 0.125f);
+			sickIdleRight = new Animation(Assets.sundotKulangotWhite, 0, 164, 92, 82, 8, 8, 0.125f);
 			break;
 		    case PASTILLAS:
-			normalIdleLeft = new Animation(Assets.pastillasOneWhite, 0, 0, 128, 98, 8, 16, .24f);
-			normalWalkingLeft = new Animation(Assets.pastillasOneWhite, 0, 588, 128, 99, 8, 8, 0.125f);
-			normalIdleRight = new Animation(Assets.pastillasOneWhite, 0, 0, 128, 98, 8, 16, .24f);
-			normalWalkingRight = new Animation(Assets.pastillasOneWhite, 0, 490, 128, 99, 8, 8, 0.125f);
-			sickIdleLeft = new Animation(Assets.pastillasOneWhite, 0, 196, 103, 128, 99, 8, 0.125f);
-			sickIdleRight = new Animation(Assets.pastillasOneWhite, 0, 196, 103, 128, 99, 8, 0.125f);
-			sickWalkingRight = new Animation(Assets.pastillasOneWhite, 0, 294, 128, 99, 8, 8, 0.125f);
-			sickWalkingLeft = new Animation(Assets.pastillasOneWhite, 0, 392, 128, 99, 8, 8, 0.125f);
+			normalIdleLeft = new Animation(Assets.pastillasWhite, 0, 0, 128, 98, 8, 16, .24f);
+			normalWalkingLeft = new Animation(Assets.pastillasWhite, 0, 588, 128, 99, 8, 8, 0.125f);
+			normalIdleRight = new Animation(Assets.pastillasWhite, 0, 0, 128, 98, 8, 16, .24f);
+			normalWalkingRight = new Animation(Assets.pastillasWhite, 0, 490, 128, 99, 8, 8, 0.125f);
+			sickIdleLeft = new Animation(Assets.pastillasWhite, 0, 196, 103, 128, 99, 8, 0.125f);
+			sickIdleRight = new Animation(Assets.pastillasWhite, 0, 196, 103, 128, 99, 8, 0.125f);
+			sickWalkingRight = new Animation(Assets.pastillasWhite, 0, 294, 128, 99, 8, 8, 0.125f);
+			sickWalkingLeft = new Animation(Assets.pastillasWhite, 0, 392, 128, 99, 8, 8, 0.125f);
 			break;
 		    default:
-			Log.d("TEST", "DoodleDroid: No Type was selected!");
 			break;
 		}
 		break;
 	    case Color.RED:
-		Log.d("TEST", "[DoodleDroid] Selected Red!");
 		switch (type) {
 		    case YEMA:
-			normalIdleLeft = new Animation(Assets.yemaOneRed, 0, 0, 87, 97, 8, 16, .24f);
-			normalIdleRight = new Animation(Assets.yemaOneRed, 0, 0, 87, 97, 8, 16, .24f);
-			normalWalkingLeft = new Animation(Assets.yemaOneRed, 0, 585, 87, 98, 8, 8, 0.125f);
-			normalWalkingRight = new Animation(Assets.yemaOneRed, 0, 487, 87, 98, 8, 8, 0.125f);
-			sickIdleLeft = new Animation(Assets.yemaOneRed, 0, 195, 87, 97, 8, 8, 0.125f);
-			sickIdleRight = new Animation(Assets.yemaOneRed, 0, 195, 87, 97, 8, 8, 0.125f);
-			sickWalkingRight = new Animation(Assets.yemaOneRed, 0, 293, 87, 98, 8, 8, 0.125f);
-			sickWalkingLeft = new Animation(Assets.yemaOneRed, 0, 390, 87, 98, 8, 8, 0.125f);
+			normalIdleLeft = new Animation(Assets.yemaRed, 0, 0, 87, 97, 8, 16, .24f);
+			normalIdleRight = new Animation(Assets.yemaRed, 0, 0, 87, 97, 8, 16, .24f);
+			normalWalkingLeft = new Animation(Assets.yemaRed, 0, 585, 87, 98, 8, 8, 0.125f);
+			normalWalkingRight = new Animation(Assets.yemaRed, 0, 487, 87, 98, 8, 8, 0.125f);
+			sickIdleLeft = new Animation(Assets.yemaRed, 0, 195, 87, 97, 8, 8, 0.125f);
+			sickIdleRight = new Animation(Assets.yemaRed, 0, 195, 87, 97, 8, 8, 0.125f);
+			sickWalkingRight = new Animation(Assets.yemaRed, 0, 293, 87, 98, 8, 8, 0.125f);
+			sickWalkingLeft = new Animation(Assets.yemaRed, 0, 390, 87, 98, 8, 8, 0.125f);
 			break;
 		    case SUNDOT_KULANGOT:
-			normalIdleLeft = new Animation(Assets.sundotKulangotOneRed, 0, 0, 92, 82, 8, 16, .24f);
-			normalWalkingLeft = new Animation(Assets.sundotKulangotOneRed, 0, 474, 92, 114, 8, 8, 0.125f);
-			normalIdleRight = new Animation(Assets.sundotKulangotOneRed, 0, 0, 92, 82, 8, 16, .24f);
-			normalWalkingRight = new Animation(Assets.sundotKulangotOneRed, 0, 360, 92, 114, 8, 8, 0.125f);
-			sickIdleLeft = new Animation(Assets.sundotKulangotOneRed, 0, 164, 92, 82, 8, 8, 0.125f);
-			sickWalkingRight = new Animation(Assets.sundotKulangotOneRed, 0, 247, 92, 113, 8, 8, 0.125f);
-			sickWalkingLeft = new Animation(Assets.sundotKulangotOneRed, 0, 589, 92, 114, 8, 8, 0.125f);
-			sickIdleRight = new Animation(Assets.sundotKulangotOneRed, 0, 164, 92, 82, 8, 8, 0.125f);
+			normalIdleLeft = new Animation(Assets.sundotKulangotRed, 0, 0, 92, 82, 8, 16, .24f);
+			normalWalkingLeft = new Animation(Assets.sundotKulangotRed, 0, 474, 92, 114, 8, 8, 0.125f);
+			normalIdleRight = new Animation(Assets.sundotKulangotRed, 0, 0, 92, 82, 8, 16, .24f);
+			normalWalkingRight = new Animation(Assets.sundotKulangotRed, 0, 360, 92, 114, 8, 8, 0.125f);
+			sickIdleLeft = new Animation(Assets.sundotKulangotRed, 0, 164, 92, 82, 8, 8, 0.125f);
+			sickWalkingRight = new Animation(Assets.sundotKulangotRed, 0, 247, 92, 113, 8, 8, 0.125f);
+			sickWalkingLeft = new Animation(Assets.sundotKulangotRed, 0, 589, 92, 114, 8, 8, 0.125f);
+			sickIdleRight = new Animation(Assets.sundotKulangotRed, 0, 164, 92, 82, 8, 8, 0.125f);
 			break;
 		    case PASTILLAS:
-			normalIdleLeft = new Animation(Assets.pastillasOneRed, 0, 0, 128, 98, 8, 16, .24f);
-			normalWalkingLeft = new Animation(Assets.pastillasOneRed, 0, 588, 128, 99, 8, 8, 0.125f);
-			normalIdleRight = new Animation(Assets.pastillasOneRed, 0, 0, 128, 98, 8, 16, .24f);
-			normalWalkingRight = new Animation(Assets.pastillasOneRed, 0, 490, 128, 99, 8, 8, 0.125f);
-			sickIdleLeft = new Animation(Assets.pastillasOneRed, 0, 196, 103, 128, 99, 8, 0.125f);
-			sickIdleRight = new Animation(Assets.pastillasOneRed, 0, 196, 103, 128, 99, 8, 0.125f);
-			sickWalkingRight = new Animation(Assets.pastillasOneRed, 0, 294, 128, 99, 8, 8, 0.125f);
-			sickWalkingLeft = new Animation(Assets.pastillasOneRed, 0, 392, 128, 99, 8, 8, 0.125f);
+			normalIdleLeft = new Animation(Assets.pastillasRed, 0, 0, 128, 98, 8, 16, .24f);
+			normalWalkingLeft = new Animation(Assets.pastillasRed, 0, 588, 128, 99, 8, 8, 0.125f);
+			normalIdleRight = new Animation(Assets.pastillasRed, 0, 0, 128, 98, 8, 16, .24f);
+			normalWalkingRight = new Animation(Assets.pastillasRed, 0, 490, 128, 99, 8, 8, 0.125f);
+			sickIdleLeft = new Animation(Assets.pastillasRed, 0, 196, 103, 128, 99, 8, 0.125f);
+			sickIdleRight = new Animation(Assets.pastillasRed, 0, 196, 103, 128, 99, 8, 0.125f);
+			sickWalkingRight = new Animation(Assets.pastillasRed, 0, 294, 128, 99, 8, 8, 0.125f);
+			sickWalkingLeft = new Animation(Assets.pastillasRed, 0, 392, 128, 99, 8, 8, 0.125f);
 			break;
 		    default:
-			Log.d("TEST", "DoodleDroid: No Type was selected!");
 			break;
 		}
 		break;
 	    case Color.GREEN:
-		Log.d("TEST", "[DoodleDroid] Selected Green!");
 		switch (type) {
 		    case YEMA:
-			normalIdleLeft = new Animation(Assets.yemaOneGreen, 0, 0, 87, 97, 8, 16, .24f);
-			normalIdleRight = new Animation(Assets.yemaOneGreen, 0, 0, 87, 97, 8, 16, .24f);
-			normalWalkingLeft = new Animation(Assets.yemaOneGreen, 0, 585, 87, 98, 8, 8, 0.125f);
-			normalWalkingRight = new Animation(Assets.yemaOneGreen, 0, 487, 87, 98, 8, 8, 0.125f);
-			sickIdleLeft = new Animation(Assets.yemaOneGreen, 0, 195, 87, 97, 8, 8, 0.125f);
-			sickIdleRight = new Animation(Assets.yemaOneGreen, 0, 195, 87, 97, 8, 8, 0.125f);
-			sickWalkingRight = new Animation(Assets.yemaOneGreen, 0, 293, 87, 98, 8, 8, 0.125f);
-			sickWalkingLeft = new Animation(Assets.yemaOneGreen, 0, 390, 87, 98, 8, 8, 0.125f);
+			normalIdleLeft = new Animation(Assets.yemaGreen, 0, 0, 87, 97, 8, 16, .24f);
+			normalIdleRight = new Animation(Assets.yemaGreen, 0, 0, 87, 97, 8, 16, .24f);
+			normalWalkingLeft = new Animation(Assets.yemaGreen, 0, 585, 87, 98, 8, 8, 0.125f);
+			normalWalkingRight = new Animation(Assets.yemaGreen, 0, 487, 87, 98, 8, 8, 0.125f);
+			sickIdleLeft = new Animation(Assets.yemaGreen, 0, 195, 87, 97, 8, 8, 0.125f);
+			sickIdleRight = new Animation(Assets.yemaGreen, 0, 195, 87, 97, 8, 8, 0.125f);
+			sickWalkingRight = new Animation(Assets.yemaGreen, 0, 293, 87, 98, 8, 8, 0.125f);
+			sickWalkingLeft = new Animation(Assets.yemaGreen, 0, 390, 87, 98, 8, 8, 0.125f);
 			break;
 		    case SUNDOT_KULANGOT:
-			normalIdleLeft = new Animation(Assets.sundotKulangotOneGreen, 0, 0, 92, 82, 8, 16, .24f);
-			normalWalkingLeft = new Animation(Assets.sundotKulangotOneGreen, 0, 474, 92, 114, 8, 8, 0.125f);
-			normalIdleRight = new Animation(Assets.sundotKulangotOneGreen, 0, 0, 92, 82, 8, 16, .24f);
-			normalWalkingRight = new Animation(Assets.sundotKulangotOneGreen, 0, 360, 92, 114, 8, 8, 0.125f);
-			sickIdleLeft = new Animation(Assets.sundotKulangotOneGreen, 0, 164, 92, 82, 8, 8, 0.125f);
-			sickWalkingRight = new Animation(Assets.sundotKulangotOneGreen, 0, 247, 92, 113, 8, 8, 0.125f);
-			sickWalkingLeft = new Animation(Assets.sundotKulangotOneGreen, 0, 589, 92, 114, 8, 8, 0.125f);
-			sickIdleRight = new Animation(Assets.sundotKulangotOneGreen, 0, 164, 92, 82, 8, 8, 0.125f);
+			normalIdleLeft = new Animation(Assets.sundotKulangotGreen, 0, 0, 92, 82, 8, 16, .24f);
+			normalWalkingLeft = new Animation(Assets.sundotKulangotGreen, 0, 474, 92, 114, 8, 8, 0.125f);
+			normalIdleRight = new Animation(Assets.sundotKulangotGreen, 0, 0, 92, 82, 8, 16, .24f);
+			normalWalkingRight = new Animation(Assets.sundotKulangotGreen, 0, 360, 92, 114, 8, 8, 0.125f);
+			sickIdleLeft = new Animation(Assets.sundotKulangotGreen, 0, 164, 92, 82, 8, 8, 0.125f);
+			sickWalkingRight = new Animation(Assets.sundotKulangotGreen, 0, 247, 92, 113, 8, 8, 0.125f);
+			sickWalkingLeft = new Animation(Assets.sundotKulangotGreen, 0, 589, 92, 114, 8, 8, 0.125f);
+			sickIdleRight = new Animation(Assets.sundotKulangotGreen, 0, 164, 92, 82, 8, 8, 0.125f);
 			break;
 		    case PASTILLAS:
-			normalIdleLeft = new Animation(Assets.pastillasOneGreen, 0, 0, 128, 98, 8, 16, .24f);
-			normalWalkingLeft = new Animation(Assets.pastillasOneGreen, 0, 588, 128, 99, 8, 8, 0.125f);
-			normalIdleRight = new Animation(Assets.pastillasOneGreen, 0, 0, 128, 98, 8, 16, .24f);
-			normalWalkingRight = new Animation(Assets.pastillasOneGreen, 0, 490, 128, 99, 8, 8, 0.125f);
-			sickIdleLeft = new Animation(Assets.pastillasOneGreen, 0, 196, 103, 128, 99, 8, 0.125f);
-			sickIdleRight = new Animation(Assets.pastillasOneGreen, 0, 196, 103, 128, 99, 8, 0.125f);
-			sickWalkingRight = new Animation(Assets.pastillasOneGreen, 0, 294, 128, 99, 8, 8, 0.125f);
-			sickWalkingLeft = new Animation(Assets.pastillasOneGreen, 0, 392, 128, 99, 8, 8, 0.125f);
+			normalIdleLeft = new Animation(Assets.pastillasGreen, 0, 0, 128, 98, 8, 16, .24f);
+			normalWalkingLeft = new Animation(Assets.pastillasGreen, 0, 588, 128, 99, 8, 8, 0.125f);
+			normalIdleRight = new Animation(Assets.pastillasGreen, 0, 0, 128, 98, 8, 16, .24f);
+			normalWalkingRight = new Animation(Assets.pastillasGreen, 0, 490, 128, 99, 8, 8, 0.125f);
+			sickIdleLeft = new Animation(Assets.pastillasGreen, 0, 196, 103, 128, 99, 8, 0.125f);
+			sickIdleRight = new Animation(Assets.pastillasGreen, 0, 196, 103, 128, 99, 8, 0.125f);
+			sickWalkingRight = new Animation(Assets.pastillasGreen, 0, 294, 128, 99, 8, 8, 0.125f);
+			sickWalkingLeft = new Animation(Assets.pastillasGreen, 0, 392, 128, 99, 8, 8, 0.125f);
 			break;
 		    default:
-			Log.d("TEST", "DoodleDroid: No Type was selected!");
 			break;
 		}
 		break;
 	    case Color.YELLOW:
-		Log.d("TEST", "[DoodleDroid] Selected Yellow!");
 		switch (type) {
 		    case YEMA:
-			normalIdleLeft = new Animation(Assets.yemaOneYellow, 0, 0, 87, 97, 8, 16, .24f);
-			normalIdleRight = new Animation(Assets.yemaOneYellow, 0, 0, 87, 97, 8, 16, .24f);
-			normalWalkingLeft = new Animation(Assets.yemaOneYellow, 0, 585, 87, 98, 8, 8, 0.125f);
-			normalWalkingRight = new Animation(Assets.yemaOneYellow, 0, 487, 87, 98, 8, 8, 0.125f);
-			sickIdleLeft = new Animation(Assets.yemaOneYellow, 0, 195, 87, 97, 8, 8, 0.125f);
-			sickIdleRight = new Animation(Assets.yemaOneYellow, 0, 195, 87, 97, 8, 8, 0.125f);
-			sickWalkingRight = new Animation(Assets.yemaOneYellow, 0, 293, 87, 98, 8, 8, 0.125f);
-			sickWalkingLeft = new Animation(Assets.yemaOneYellow, 0, 390, 87, 98, 8, 8, 0.125f);
+			normalIdleLeft = new Animation(Assets.yemaYellow, 0, 0, 87, 97, 8, 16, .24f);
+			normalIdleRight = new Animation(Assets.yemaYellow, 0, 0, 87, 97, 8, 16, .24f);
+			normalWalkingLeft = new Animation(Assets.yemaYellow, 0, 585, 87, 98, 8, 8, 0.125f);
+			normalWalkingRight = new Animation(Assets.yemaYellow, 0, 487, 87, 98, 8, 8, 0.125f);
+			sickIdleLeft = new Animation(Assets.yemaYellow, 0, 195, 87, 97, 8, 8, 0.125f);
+			sickIdleRight = new Animation(Assets.yemaYellow, 0, 195, 87, 97, 8, 8, 0.125f);
+			sickWalkingRight = new Animation(Assets.yemaYellow, 0, 293, 87, 98, 8, 8, 0.125f);
+			sickWalkingLeft = new Animation(Assets.yemaYellow, 0, 390, 87, 98, 8, 8, 0.125f);
 			break;
 		    case SUNDOT_KULANGOT:
-			normalIdleLeft = new Animation(Assets.sundotKulangotOneYellow, 0, 0, 92, 82, 8, 16, .24f);
-			normalWalkingLeft = new Animation(Assets.sundotKulangotOneYellow, 0, 474, 92, 114, 8, 8, 0.125f);
-			normalIdleRight = new Animation(Assets.sundotKulangotOneYellow, 0, 0, 92, 82, 8, 16, .24f);
-			normalWalkingRight = new Animation(Assets.sundotKulangotOneYellow, 0, 360, 92, 114, 8, 8, 0.125f);
-			sickIdleLeft = new Animation(Assets.sundotKulangotOneYellow, 0, 164, 92, 82, 8, 8, 0.125f);
-			sickWalkingRight = new Animation(Assets.sundotKulangotOneYellow, 0, 247, 92, 113, 8, 8, 0.125f);
-			sickWalkingLeft = new Animation(Assets.sundotKulangotOneYellow, 0, 589, 92, 114, 8, 8, 0.125f);
-			sickIdleRight = new Animation(Assets.sundotKulangotOneYellow, 0, 164, 92, 82, 8, 8, 0.125f);
+			normalIdleLeft = new Animation(Assets.sundotKulangotYellow, 0, 0, 92, 82, 8, 16, .24f);
+			normalWalkingLeft = new Animation(Assets.sundotKulangotYellow, 0, 474, 92, 114, 8, 8, 0.125f);
+			normalIdleRight = new Animation(Assets.sundotKulangotYellow, 0, 0, 92, 82, 8, 16, .24f);
+			normalWalkingRight = new Animation(Assets.sundotKulangotYellow, 0, 360, 92, 114, 8, 8, 0.125f);
+			sickIdleLeft = new Animation(Assets.sundotKulangotYellow, 0, 164, 92, 82, 8, 8, 0.125f);
+			sickWalkingRight = new Animation(Assets.sundotKulangotYellow, 0, 247, 92, 113, 8, 8, 0.125f);
+			sickWalkingLeft = new Animation(Assets.sundotKulangotYellow, 0, 589, 92, 114, 8, 8, 0.125f);
+			sickIdleRight = new Animation(Assets.sundotKulangotYellow, 0, 164, 92, 82, 8, 8, 0.125f);
 			break;
 		    case PASTILLAS:
-			normalIdleLeft = new Animation(Assets.pastillasOneYellow, 0, 0, 128, 98, 8, 16, .24f);
-			normalWalkingLeft = new Animation(Assets.pastillasOneYellow, 0, 588, 128, 99, 8, 8, 0.125f);
-			normalIdleRight = new Animation(Assets.pastillasOneYellow, 0, 0, 128, 98, 8, 16, .24f);
-			normalWalkingRight = new Animation(Assets.pastillasOneYellow, 0, 490, 128, 99, 8, 8, 0.125f);
-			sickIdleLeft = new Animation(Assets.pastillasOneYellow, 0, 196, 103, 128, 99, 8, 0.125f);
-			sickIdleRight = new Animation(Assets.pastillasOneYellow, 0, 196, 103, 128, 99, 8, 0.125f);
-			sickWalkingRight = new Animation(Assets.pastillasOneYellow, 0, 294, 128, 99, 8, 8, 0.125f);
-			sickWalkingLeft = new Animation(Assets.pastillasOneYellow, 0, 392, 128, 99, 8, 8, 0.125f);
+			normalIdleLeft = new Animation(Assets.pastillasYellow, 0, 0, 128, 98, 8, 16, .24f);
+			normalWalkingLeft = new Animation(Assets.pastillasYellow, 0, 588, 128, 99, 8, 8, 0.125f);
+			normalIdleRight = new Animation(Assets.pastillasYellow, 0, 0, 128, 98, 8, 16, .24f);
+			normalWalkingRight = new Animation(Assets.pastillasYellow, 0, 490, 128, 99, 8, 8, 0.125f);
+			sickIdleLeft = new Animation(Assets.pastillasYellow, 0, 196, 103, 128, 99, 8, 0.125f);
+			sickIdleRight = new Animation(Assets.pastillasYellow, 0, 196, 103, 128, 99, 8, 0.125f);
+			sickWalkingRight = new Animation(Assets.pastillasYellow, 0, 294, 128, 99, 8, 8, 0.125f);
+			sickWalkingLeft = new Animation(Assets.pastillasYellow, 0, 392, 128, 99, 8, 8, 0.125f);
 			break;
 		    default:
-			Log.d("TEST", "DoodleDroid: No Type was selected!");
 			break;
 		}
 		break;

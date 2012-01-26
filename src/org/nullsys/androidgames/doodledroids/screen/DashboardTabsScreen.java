@@ -2,8 +2,6 @@ package org.nullsys.androidgames.doodledroids.screen;
 
 import java.util.ArrayList;
 
-import android.util.Log;
-
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.equations.Expo;
@@ -61,7 +59,6 @@ public class DashboardTabsScreen extends GLScreen implements TouchEventCallback 
     public Sprite statusTabSelected;
     public Sprite statusTabUnselected;
 
-    // STATUS WINDOW
     public Sprite energyLabel;
     public Sprite healthLabel;
     public Sprite luckLabel;
@@ -82,8 +79,6 @@ public class DashboardTabsScreen extends GLScreen implements TouchEventCallback 
 
     public Text remainingPoints;
 
-    // APPARELS TAB
-
     public Button apparelsLeftButton;
 
     public Button apparelsRightButton;
@@ -99,8 +94,6 @@ public class DashboardTabsScreen extends GLScreen implements TouchEventCallback 
     public int apparelsIndex = 0;
 
     public int apparelSelectedIndex = 7;
-
-    // ITEMS TAB 
 
     public Text itemName;
 
@@ -450,34 +443,6 @@ public class DashboardTabsScreen extends GLScreen implements TouchEventCallback 
 	itemTabDisplays.add(itemDescription);
 	addChild(itemDescription);
 
-	/*itemEnergyRecovery = new Text(Assets.poohGreenFont, "");
-	itemEnergyRecovery.x = 84;
-	itemEnergyRecovery.y = 194;
-	itemEnergyRecovery.scaleX = .3f;
-	itemEnergyRecovery.scaleY = .3f;
-	itemTabDisplays.add(itemEnergyRecovery);
-	addChild(itemEnergyRecovery);
-
-	itemHealthRecovery = new Text(Assets.poohGreenFont, "");
-	itemHealthRecovery.x = 153;
-	itemHealthRecovery.y = 194;
-	itemHealthRecovery.scaleX = .3f;
-	itemHealthRecovery.scaleY = .3f;
-	itemTabDisplays.add(itemHealthRecovery);
-	addChild(itemHealthRecovery);
-
-	itemEnergyIcon = new Sprite(new TextureRegion(Assets.stage, 46, 134, 22, 25));
-	itemEnergyIcon.x = 62;
-	itemEnergyIcon.y = 112;
-	itemTabDisplays.add(itemEnergyIcon);
-	addChild(itemEnergyIcon);
-
-	itemHealthIcon = new Sprite(new TextureRegion(Assets.stage, 50, 165, 28, 26));
-	itemHealthIcon.x = 124;
-	itemHealthIcon.y = 112;
-	itemTabDisplays.add(itemHealthIcon);
-	addChild(itemHealthIcon);*/
-
 	itemLeftButton = new Button(new TextureRegion(Assets.dashboardTabs, 789, 18, 41, 39), new TextureRegion(Assets.dashboardTabs, 833, 22, 35, 33));
 	itemLeftButton.x = 208;
 	itemLeftButton.y = 116;
@@ -607,20 +572,16 @@ public class DashboardTabsScreen extends GLScreen implements TouchEventCallback 
 	for (int index = 1; index < displayObjects.size() - 1; index++)
 	    displayObjects.get(index).move(new VectorCoords(displayObjects.get(index).x - 480, displayObjects.get(index).y), Expo.OUT, 500, 0, false);
 	last.move(new VectorCoords(last.x - 480, last.y), Expo.OUT, 500, 0, true);
-	// Enable the functions of the displays on the previous screen.
 	for (int index = 0; index < stage.displayObjects.size(); index++)
 	    stage.displayObjects.get(index).enabled = true;
     }
 
     @Override
     public void dispose() {
-
     }
 
     @Override
     public void menuPressed() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
@@ -703,15 +664,12 @@ public class DashboardTabsScreen extends GLScreen implements TouchEventCallback 
 		if (Settings.soundEnabled)
 		    Assets.tap.play(1);
 	    } else if (source.equals(energyButton)) {
-		Log.d("TEST", "ENERGY++");
 		droid.energyTotal++;
 		droid.freeStats--;
 	    } else if (source.equals(healthButton)) {
-		Log.d("TEST", "ENERGY++");
 		droid.healthTotal++;
 		droid.freeStats--;
 	    } else if (source.equals(luckButton)) {
-		Log.d("TEST", "ENERGY++");
 		droid.luck++;
 		droid.freeStats--;
 	    } else if (source.equals(back))
@@ -727,7 +685,6 @@ public class DashboardTabsScreen extends GLScreen implements TouchEventCallback 
 		droid.apparel.scaleX = 1f;
 		droid.apparel.scaleY = 1f;
 	    } else if (source.equals(apparelEquip) && droid.equipment.get(6 * apparelsIndex + apparelSelectedIndex) instanceof Headgear) {
-		Log.d("TEST", "[DashboardTabScreen] Equipping " + droid.equipment.get(6 * apparelsIndex + apparelSelectedIndex).getName());
 		if (droid.headgear != null) {
 		    Headgear headgear = (Headgear) ItemFactory.getEquippable(droid.headgear.name);
 		    droid.equipment.add(headgear);
@@ -785,20 +742,6 @@ public class DashboardTabsScreen extends GLScreen implements TouchEventCallback 
 	    }
 
 	    if (apparelsLeftButton.tween.isFinished()) {
-		/*droid.getDisplayByState().x = 64;
-		droid.getDisplayByState().y = 65;
-		droid.getDisplayByState().render(batcher);
-
-		try {
-		    DisplayObject headgear = droid.headgear;
-		    headgear.x = droid.getDisplayByState().x + droid.getDisplayByState().width / 2 - headgear.width / 2;
-		    headgear.y = droid.getDisplayByState().y + droid.getDisplayByState().height - headgear.height;
-		    headgear.scaleX = 1f;
-		    headgear.scaleY = 1f;
-		    headgear.render(batcher);
-		} catch (NullPointerException e) {
-
-		}*/
 		droid.x = 64;
 		droid.y = 65;
 		droid.render(batcher);
@@ -820,7 +763,6 @@ public class DashboardTabsScreen extends GLScreen implements TouchEventCallback 
 		} else
 		    rowIndex++;
 	    }
-
 	gl.glDisable(GL10.GL_BLEND);
     }
 
@@ -834,7 +776,6 @@ public class DashboardTabsScreen extends GLScreen implements TouchEventCallback 
 	for (int index = 1; index < displayObjects.size(); index++)
 	    displayObjects.get(index).move(new VectorCoords(displayObjects.get(index).x + 480, displayObjects.get(index).y), Expo.OUT, 1000, 0, false);
 
-	// Disable the functions of the displays on the previous screen.
 	for (int index = 0; index < stage.displayObjects.size(); index++)
 	    stage.displayObjects.get(index).enabled = false;
 
@@ -1004,12 +945,9 @@ public class DashboardTabsScreen extends GLScreen implements TouchEventCallback 
 		itemName.text = "";
 		itemDescription.text = "";
 	    }
-
 	}
-
     }
 
-    /** Show all displays related to the Apparels tab. */
     private void showApparelsTab() {
 	itemsTabSelected.visible = false;
 	itemsTabUnselected.visible = true;
@@ -1027,7 +965,6 @@ public class DashboardTabsScreen extends GLScreen implements TouchEventCallback 
 	    statusTabDisplays.get(index).visible = false;
     }
 
-    /** Show all displays related to the Items tab. */
     private void showItemsTab() {
 	itemsTabSelected.visible = true;
 	itemsTabUnselected.visible = false;
@@ -1045,7 +982,6 @@ public class DashboardTabsScreen extends GLScreen implements TouchEventCallback 
 	    statusTabDisplays.get(index).visible = false;
     }
 
-    /** Show all displays related to the Status tab. */
     private void showStatusTab() {
 	itemsTabSelected.visible = false;
 	itemsTabUnselected.visible = true;
@@ -1063,7 +999,6 @@ public class DashboardTabsScreen extends GLScreen implements TouchEventCallback 
 	    statusTabDisplays.get(index).visible = true;
     }
 
-    /** Invoked when an apparel box is selected. Deselects any other selected apparel box. */
     private void unselectOtherApparelBox(int selectedBox) {
 	switch (selectedBox) {
 	    case 1:
@@ -1239,5 +1174,4 @@ public class DashboardTabsScreen extends GLScreen implements TouchEventCallback 
 		itemBox9.toggled = false;
 	}
     }
-
 }

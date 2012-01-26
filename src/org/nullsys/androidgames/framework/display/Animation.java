@@ -2,12 +2,6 @@ package org.nullsys.androidgames.framework.display;
 
 import org.nullsys.androidgames.framework.Input.TouchEvent;
 
-/**
- * An Animated DisplayObject.
- * 
- * @author MrUseL3tter
- * @version 1.00
- */
 public class Animation extends DisplayObject implements Controllable {
 
     public final TextureRegion[] keyFrames;

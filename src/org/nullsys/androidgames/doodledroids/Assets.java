@@ -1,7 +1,5 @@
 package org.nullsys.androidgames.doodledroids;
 
-import android.util.Log;
-
 import org.nullsys.androidgames.framework.Music;
 import org.nullsys.androidgames.framework.Sound;
 import org.nullsys.androidgames.framework.display.Texture;
@@ -18,24 +16,23 @@ public class Assets {
     public static Texture dashboardTabs;
     public static Texture fonts;
 
-    // Droids textures
-    public static Texture sundotKulangotOneWhite;
-    public static Texture sundotKulangotOneYellow;
-    public static Texture sundotKulangotOneRed;
-    public static Texture sundotKulangotOneBlue;
-    public static Texture sundotKulangotOneGreen;
+    public static Texture sundotKulangotWhite;
+    public static Texture sundotKulangotYellow;
+    public static Texture sundotKulangotRed;
+    public static Texture sundotKulangotBlue;
+    public static Texture sundotKulangotGreen;
 
-    public static Texture yemaOneWhite;
-    public static Texture yemaOneYellow;
-    public static Texture yemaOneRed;
-    public static Texture yemaOneBlue;
-    public static Texture yemaOneGreen;
+    public static Texture yemaWhite;
+    public static Texture yemaYellow;
+    public static Texture yemaRed;
+    public static Texture yemaBlue;
+    public static Texture yemaGreen;
 
-    public static Texture pastillasOneWhite;
-    public static Texture pastillasOneYellow;
-    public static Texture pastillasOneRed;
-    public static Texture pastillasOneBlue;
-    public static Texture pastillasOneGreen;
+    public static Texture pastillasWhite;
+    public static Texture pastillasYellow;
+    public static Texture pastillasRed;
+    public static Texture pastillasBlue;
+    public static Texture pastillasGreen;
 
     public static Texture models;
     public static Texture items1;
@@ -70,9 +67,6 @@ public class Assets {
     public static Music shopBGM;
 
     public static void load() {
-	//Assets.game = game;
-	Log.d("TEST", "[Assets] LOADING STANDARD TEXTURES...");
-
 	models = new Texture(game, "gfx/models.png");
 	splash = new Texture(game, "gfx/splash.png");
 	mainMenu = new Texture(game, "gfx/main_menu.png");
@@ -99,12 +93,9 @@ public class Assets {
 	shopBGM = game.getAudio().newMusic("sfx/shop.mid");
 	shopBGM.setLooping(true);
 	shopBGM.setVolume(.5f);
-
-	Log.d("TEST", "[Assets] FINISHED LOADING ALL THE ASSETS!");
     }
 
     public static void loadFonts() {
-	Log.d("TEST", "[Assets] LOADING FONTS...");
 	fonts = new Texture(game, "gfx/fonts.png");
 
 	poohWhiteStroked = new AlphabetFont();
@@ -489,44 +480,22 @@ public class Assets {
 	worldTimeFont.set(fonts, 0, 447, 16, 15, 17);
 
 	mc10 = new AlphabetFont(fonts, 0, 214, 10, 10, 26);
-
-	Log.d("TEST", "[Assets] FINISHED LOADING FONTS!");
     }
 
     public static void loadPastillasDroids() {
-	/*try {
-	    pastillasOneWhite.reload();
-	    Log.d("TEST", "[Assets] Reloading Pastillas Droids...");
-	    pastillasOneYellow.reload();
-	    pastillasOneRed.reload();
-	    pastillasOneBlue.reload();
-	    pastillasOneGreen.reload();
-	} catch (NullPointerException e) {
-	    Log.d("TEST", "[Assets] Loading Pastillas Droids FOR THE FIRST TIME...");*/
-	pastillasOneWhite = new Texture(Assets.game, "gfx/droids/pastillas/pastillas1white.png");
-	pastillasOneYellow = new Texture(Assets.game, "gfx/droids/pastillas/pastillas1yellow.png");
-	pastillasOneRed = new Texture(Assets.game, "gfx/droids/pastillas/pastillas1red.png");
-	pastillasOneBlue = new Texture(Assets.game, "gfx/droids/pastillas/pastillas1blue.png");
-	pastillasOneGreen = new Texture(Assets.game, "gfx/droids/pastillas/pastillas1green.png");
-	//}
+	pastillasWhite = new Texture(Assets.game, "gfx/droids/pastillas/pastillas1white.png");
+	pastillasYellow = new Texture(Assets.game, "gfx/droids/pastillas/pastillas1yellow.png");
+	pastillasRed = new Texture(Assets.game, "gfx/droids/pastillas/pastillas1red.png");
+	pastillasBlue = new Texture(Assets.game, "gfx/droids/pastillas/pastillas1blue.png");
+	pastillasGreen = new Texture(Assets.game, "gfx/droids/pastillas/pastillas1green.png");
     }
 
     public static void loadSundotKulangotDroids() {
-	/*try {
-	    sundotKulangotOneBlue.reload();
-	    Log.d("TEST", "[Assets] Reloading SK Droids...");
-	    sundotKulangotOneWhite.reload();
-	    sundotKulangotOneYellow.reload();
-	    sundotKulangotOneRed.reload();
-	    sundotKulangotOneGreen.reload();
-	} catch (NullPointerException e) {*/
-	Log.d("TEST", "[Assets] Loading SK Droids FOR THE FIRST TIME...");
-	sundotKulangotOneBlue = new Texture(Assets.game, "gfx/droids/sundotkulangot/sundotkulangot1blue.png");
-	sundotKulangotOneWhite = new Texture(Assets.game, "gfx/droids/sundotkulangot/sundotkulangot1white.png");
-	sundotKulangotOneYellow = new Texture(Assets.game, "gfx/droids/sundotkulangot/sundotkulangot1yellow.png");
-	sundotKulangotOneRed = new Texture(Assets.game, "gfx/droids/sundotkulangot/sundotkulangot1red.png");
-	sundotKulangotOneGreen = new Texture(Assets.game, "gfx/droids/sundotkulangot/sundotkulangot1green.png");
-	//}
+	sundotKulangotBlue = new Texture(Assets.game, "gfx/droids/sundotkulangot/sundotkulangot1blue.png");
+	sundotKulangotWhite = new Texture(Assets.game, "gfx/droids/sundotkulangot/sundotkulangot1white.png");
+	sundotKulangotYellow = new Texture(Assets.game, "gfx/droids/sundotkulangot/sundotkulangot1yellow.png");
+	sundotKulangotRed = new Texture(Assets.game, "gfx/droids/sundotkulangot/sundotkulangot1red.png");
+	sundotKulangotGreen = new Texture(Assets.game, "gfx/droids/sundotkulangot/sundotkulangot1green.png");
     }
 
     public static void loadWorld() {
@@ -537,21 +506,11 @@ public class Assets {
     }
 
     public static void loadYemaDroids() {
-	/*try {
-	    yemaOneWhite.reload();
-	    Log.d("TEST", "[Assets] Reloading Yema Droids...");
-	    yemaOneYellow.reload();
-	    yemaOneRed.reload();
-	    yemaOneBlue.reload();
-	    yemaOneGreen.reload();
-	} catch (NullPointerException e) {*/
-	Log.d("TEST", "[Assets] Loading Yema Droids FOR THE FIRST TIME...");
-	yemaOneWhite = new Texture(Assets.game, "gfx/droids/yema/yema1white.png");
-	yemaOneYellow = new Texture(Assets.game, "gfx/droids/yema/yema1yellow.png");
-	yemaOneRed = new Texture(Assets.game, "gfx/droids/yema/yema1red.png");
-	yemaOneBlue = new Texture(Assets.game, "gfx/droids/yema/yema1blue.png");
-	yemaOneGreen = new Texture(Assets.game, "gfx/droids/yema/yema1green.png");
-	//}
+	yemaWhite = new Texture(Assets.game, "gfx/droids/yema/yema1white.png");
+	yemaYellow = new Texture(Assets.game, "gfx/droids/yema/yema1yellow.png");
+	yemaRed = new Texture(Assets.game, "gfx/droids/yema/yema1red.png");
+	yemaBlue = new Texture(Assets.game, "gfx/droids/yema/yema1blue.png");
+	yemaGreen = new Texture(Assets.game, "gfx/droids/yema/yema1green.png");
     }
 
     public static void playSound(Sound sound) {
@@ -569,21 +528,21 @@ public class Assets {
 	quest.reload();
 	worldMap.reload();
 	models.reload();
-	pastillasOneWhite.reload();
-	pastillasOneYellow.reload();
-	pastillasOneRed.reload();
-	pastillasOneBlue.reload();
-	pastillasOneGreen.reload();
-	sundotKulangotOneBlue.reload();
-	sundotKulangotOneWhite.reload();
-	sundotKulangotOneYellow.reload();
-	sundotKulangotOneRed.reload();
-	sundotKulangotOneGreen.reload();
-	yemaOneWhite.reload();
-	yemaOneYellow.reload();
-	yemaOneRed.reload();
-	yemaOneBlue.reload();
-	yemaOneGreen.reload();
+	pastillasWhite.reload();
+	pastillasYellow.reload();
+	pastillasRed.reload();
+	pastillasBlue.reload();
+	pastillasGreen.reload();
+	sundotKulangotBlue.reload();
+	sundotKulangotWhite.reload();
+	sundotKulangotYellow.reload();
+	sundotKulangotRed.reload();
+	sundotKulangotGreen.reload();
+	yemaWhite.reload();
+	yemaYellow.reload();
+	yemaRed.reload();
+	yemaBlue.reload();
+	yemaGreen.reload();
     }
 
     public static void unload() {
@@ -600,46 +559,39 @@ public class Assets {
 	    unloadSundotKulangotDroids();
 	    unloadYemaDroids();
 	} catch (NullPointerException e) {
-
 	}
     }
 
     public static void unloadPastillas() {
-	Log.d("TEST", "[Assets] Disposing Pastillas Droids...");
 	try {
-	    pastillasOneWhite.dispose();
-	    pastillasOneYellow.dispose();
-	    pastillasOneRed.dispose();
-	    pastillasOneBlue.dispose();
-	    pastillasOneGreen.dispose();
+	    pastillasWhite.dispose();
+	    pastillasYellow.dispose();
+	    pastillasRed.dispose();
+	    pastillasBlue.dispose();
+	    pastillasGreen.dispose();
 	} catch (NullPointerException e) {
-
 	}
     }
 
     public static void unloadSundotKulangotDroids() {
-	Log.d("TEST", "[Assets] Disposing SK Droids...");
 	try {
-	    sundotKulangotOneBlue.dispose();
-	    sundotKulangotOneWhite.dispose();
-	    sundotKulangotOneYellow.dispose();
-	    sundotKulangotOneRed.dispose();
-	    sundotKulangotOneGreen.dispose();
+	    sundotKulangotBlue.dispose();
+	    sundotKulangotWhite.dispose();
+	    sundotKulangotYellow.dispose();
+	    sundotKulangotRed.dispose();
+	    sundotKulangotGreen.dispose();
 	} catch (NullPointerException e) {
-
 	}
     }
 
     public static void unloadYemaDroids() {
-	Log.d("TEST", "[Assets] Disposing Yema Droids...");
 	try {
-	    yemaOneWhite.dispose();
-	    yemaOneYellow.dispose();
-	    yemaOneRed.dispose();
-	    yemaOneBlue.dispose();
-	    yemaOneGreen.dispose();
+	    yemaWhite.dispose();
+	    yemaYellow.dispose();
+	    yemaRed.dispose();
+	    yemaBlue.dispose();
+	    yemaGreen.dispose();
 	} catch (NullPointerException e) {
-
 	}
     }
 }

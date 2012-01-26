@@ -110,7 +110,6 @@ public class MainMenuScreen extends GLScreen implements TouchEventCallback {
 	exit.tapSound = Assets.cancel2;
 	addChild(exit);
 
-	// Fade in the display objects
 	for (int index = 0; index < displayObjects.size(); index++)
 	    displayObjects.get(index).move(1.0f, Linear.INOUT, 200, 0, false);
     }
@@ -122,13 +121,10 @@ public class MainMenuScreen extends GLScreen implements TouchEventCallback {
 
     @Override
     public void dispose() {
-
     }
 
     @Override
     public void menuPressed() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override

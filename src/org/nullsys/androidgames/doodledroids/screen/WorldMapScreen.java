@@ -24,43 +24,30 @@ import org.nullsys.androidgames.framework.math.VectorCoords;
 
 public class WorldMapScreen extends GLScreen {
 
-    /** Numeric representation of the stages. */
     public static final int MARKET = 1, BERMUDA_TRIANGLE = 2, HOME = 3, SILICON_VALLEY = 4;
 
-    /** Screen to return to if this screen is canceled. */
     private Screen previousScreen;
 
-    /** The Droido Mondo logo at the bottom center of the screen*/
     private Sprite logo;
 
-    /** Icon for the world time. */
     private Sprite worldTimeIcon;
 
-    /** Stage navigation buttons. */
     private Button proceed, cancel;
 
-    /** The continents in the map. */
     private Sprite islands, east, desert, ice, west, island;
 
-    /** Sprites that represent the stages' icon. */
     private Sprite bermudaTriangle, market, home, siliconValley;
 
-    /** Sprites that represent the stages' logo. */
     private Sprite bermudaTriangleLogo, marketLogo, homeLogo, siliconValleyLogo;
 
-    /** Red pin that represents target stage. */
     private Sprite targetStageIcon;
 
-    /** Icon that points to the current stage. */
     private Sprite currentStageIcon;
 
-    /** Numeric representation of the target stage. */
     private int targetStage = 0;
 
-    /** Numeric representation of the current stage. */
     private int currentStage = 0;
 
-    /** Twenty-four-hour-type world time representation. */
     private Text worldTime;
 
     public WorldMapScreen(Game game, Screen previousScreen, int currentStage) {
@@ -71,7 +58,6 @@ public class WorldMapScreen extends GLScreen {
 	try {
 	    game.getWorld().start();
 	} catch (IllegalThreadStateException e) {
-
 	}
 
 	addChild(new Sprite(new TextureRegion(Assets.worldMap, 0, 347, 480, 320)));
@@ -115,7 +101,6 @@ public class WorldMapScreen extends GLScreen {
 	bermudaTriangle.x = 414;
 	bermudaTriangle.y = 174;
 	bermudaTriangle.touchCallback = this;
-	//addChild(bermudaTriangle);
 
 	market = new Sprite(new TextureRegion(Assets.worldMap, 317, 195, 38, 46));
 	market.x = 290;
@@ -179,7 +164,6 @@ public class WorldMapScreen extends GLScreen {
 
 	currentStageIcon = new Sprite(new TextureRegion(Assets.worldMap, 287, 195, 30, 29));
 	currentStageIcon.visible = false;
-	//addChild(currentStageIcon);
 
 	worldTime = new Text(Assets.worldTimeFont, "");
 	worldTime.x = 258;
@@ -220,8 +204,6 @@ public class WorldMapScreen extends GLScreen {
 
     @Override
     public void dispose() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
@@ -337,7 +319,6 @@ public class WorldMapScreen extends GLScreen {
 	else
 	    worldTime.text += "" + game.getWorld().worldSeconds;
 
-	// Set the position of the current stage icon
 	switch (currentStage) {
 	    case MARKET:
 		currentStageIcon.x = 301;
@@ -358,7 +339,6 @@ public class WorldMapScreen extends GLScreen {
 	    default:
 	}
 
-	// Set the position of the target stage icon
 	switch (targetStage) {
 	    case MARKET:
 		targetStageIcon.x = 301;
@@ -392,7 +372,6 @@ public class WorldMapScreen extends GLScreen {
 
     }
 
-    /** Show only the logo of the selected target stage. */
     private void hideOtherStageIcon(int targetStage) {
 	switch (targetStage) {
 	    case MARKET:
@@ -429,7 +408,6 @@ public class WorldMapScreen extends GLScreen {
 	}
     }
 
-    /** Animate the displays. Invoked at the beginning. */
     private void tweenDisplays() {
 	logo.tweenCallback = new TweenCallback() {
 

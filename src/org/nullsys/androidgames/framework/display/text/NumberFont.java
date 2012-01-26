@@ -12,7 +12,6 @@ public class NumberFont extends Font {
     public float one = .5f, two = 1f, three = 1f, four = 1f, five = 1f, six = 1f, seven = 1f, eight = 1f, nine = 1f, zero = 1f, exclamation = .5f, question = .5f, dot = .1f, coma = .25f, dash = .5f, colon = 1f, plus = 1f;
 
     public NumberFont() {
-
     }
 
     public NumberFont(Texture texture, int offsetX, int offsetY, int glyphWidth, int glyphHeight, int glyphsPerRow) {

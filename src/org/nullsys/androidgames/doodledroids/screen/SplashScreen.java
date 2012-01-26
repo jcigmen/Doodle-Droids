@@ -44,25 +44,18 @@ public class SplashScreen extends GLScreen {
 
     @Override
     public void dispose() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
     public void menuPressed() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
     public void pause() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
     public void resume() {
-
     }
 
     @Override

@@ -14,8 +14,6 @@ public class InventoryItem extends Item implements ItemEffectCallback {
 
     @Override
     public void checkInputs(int eventType, int eventX, int eventY) {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
@@ -30,7 +28,6 @@ public class InventoryItem extends Item implements ItemEffectCallback {
 
     @Override
     public void use(DoodleDroid droid) {
-
     }
 
 }

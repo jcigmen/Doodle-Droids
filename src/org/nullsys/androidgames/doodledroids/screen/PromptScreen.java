@@ -1,7 +1,5 @@
 package org.nullsys.androidgames.doodledroids.screen;
 
-import android.util.Log;
-
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.equations.Back;
@@ -149,15 +147,12 @@ public class PromptScreen extends GLScreen implements TouchEventCallback {
 
     @Override
     public void dispose() {
-	Log.d("TEST", "[PromptScreen] Disposing prompt screen...");
 	for (int index = 0; index < previousScreen.displayObjects.size(); index++)
 	    previousScreen.displayObjects.get(index).enabled = true;
     }
 
     @Override
     public void menuPressed() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
@@ -197,13 +192,10 @@ public class PromptScreen extends GLScreen implements TouchEventCallback {
 
     @Override
     public void pause() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
     public void resume() {
-
     }
 
     /** Tween the displays for an exit animation. */

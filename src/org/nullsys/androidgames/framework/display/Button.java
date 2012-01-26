@@ -5,11 +5,6 @@ import org.nullsys.androidgames.framework.Input.TouchEvent;
 import org.nullsys.androidgames.framework.Sound;
 import org.nullsys.androidgames.framework.display.event.TouchEventCallback;
 
-/**
- * 
- * @author MrUseL3tter
- * @version 1.00
- */
 public class Button extends DisplayObjectContainer {
 
     public Sprite upstate;
@@ -55,7 +50,6 @@ public class Button extends DisplayObjectContainer {
 			    tapSound.play(1);
 			toggled = true;
 		    } else
-			//if (!toggleMode)
 			toggled = false;
 		    break;
 		case TouchEvent.TOUCH_UP:
@@ -99,9 +93,6 @@ public class Button extends DisplayObjectContainer {
 	    return upstate.getHeight();
     }
 
-    /**
-     * @return the tapSound
-     */
     public Sound getTapSound() {
 	return tapSound;
     }
@@ -114,9 +105,6 @@ public class Button extends DisplayObjectContainer {
 	    return upstate.getTextureRegion();
     }
 
-    /**
-     * @return the touchListener
-     */
     public TouchEventCallback getTouchListener() {
 	return touchCallback;
     }
@@ -157,9 +145,6 @@ public class Button extends DisplayObjectContainer {
 	    }
     }
 
-    /**
-     * @param tapSound the tapSound to set
-     */
     public void setTapSound(Sound tapSound) {
 	this.tapSound = tapSound;
     }

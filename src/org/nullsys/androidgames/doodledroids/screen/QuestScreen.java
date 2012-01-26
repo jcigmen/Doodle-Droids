@@ -1,7 +1,5 @@
 package org.nullsys.androidgames.doodledroids.screen;
 
-import android.util.Log;
-
 import aurelienribon.tweenengine.Tween;
 import aurelienribon.tweenengine.TweenCallback;
 import aurelienribon.tweenengine.equations.Back;
@@ -71,11 +69,9 @@ public class QuestScreen extends GLScreen implements TouchEventCallback, QuestEv
 
 	game.getDroid().callback = this;
 
-	// Add callback listeners to the quests
 	for (int index = 0; index < this.quests.length; index++)
 	    this.quests[index].callback = this;
 
-	// Disable the functions of the displays on the previous screen.
 	for (int index = 0; index < previousScreen.displayObjects.size(); index++)
 	    previousScreen.displayObjects.get(index).enabled = false;
 
@@ -122,7 +118,6 @@ public class QuestScreen extends GLScreen implements TouchEventCallback, QuestEv
 	apparel = new Sprite(new TextureRegion(Assets.quest, 391, 150, 29, 25));
 	apparel.x = 373;
 	apparel.y = 82;
-	//addChild(apparel);
 
 	chest = new Sprite(new TextureRegion(Assets.quest, 391, 150, 29, 25));
 	chest.x = 341;
@@ -234,7 +229,6 @@ public class QuestScreen extends GLScreen implements TouchEventCallback, QuestEv
 
     @Override
     public void backPressed() {
-	// Enable the functions of the displays on the previous screen.
 	for (int index = 0; index < previousScreen.displayObjects.size(); index++)
 	    previousScreen.displayObjects.get(index).enabled = true;
 	game.setScreen(previousScreen);
@@ -242,67 +236,35 @@ public class QuestScreen extends GLScreen implements TouchEventCallback, QuestEv
 
     @Override
     public void dispose() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
     public void menuPressed() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
     public void onEnergyInsufficient() {
-	/*Log.d("TEST", "Energy Insufficient");
-	actorDialogText.text = "Insufficient Energy!";
-	actorDialog.visible = true;
-	actorDialogText.visible = true;
-	actorDialogCounter = 0;
-	logItems();*/
 	game.setScreen(new PromptScreen(game, this, PromptScreen.OK_PROMPT, "ENERGY\nINSUFFICIENT!"));
     }
 
     @Override
     public void onHealthInsufficient() {
-	/*Log.d("TEST", "Health Insufficient");
-	actorDialogText.text = "Insufficient Health!";
-	actorDialog.visible = true;
-	actorDialogText.visible = true;
-	actorDialogCounter = 0;
-	logItems();*/
 	game.setScreen(new PromptScreen(game, this, PromptScreen.OK_PROMPT, "HEALTH\nINSUFFICIENT!"));
     }
 
     @Override
     public void onItemDrop(String itemName) {
-	/*actorDialogText.text = "Obtained\n" + itemName + "!";
-	actorDialog.visible = true;
-	actorDialogText.visible = true;
-	actorDialogCounter = 0;*/
 	game.setScreen(new PromptScreen(game, this, PromptScreen.OK_PROMPT, "OBTAINED\n" + itemName));
     }
 
     @Override
     public void onItemsInsufficient() {
-	/*Log.d("TEST", "Items Insufficient");
-	actorDialogText.text = "Items Insufficient!";
-	actorDialog.visible = true;
-	actorDialogText.visible = true;
-	actorDialogCounter = 0;*/
 	game.setScreen(new PromptScreen(game, this, PromptScreen.OK_PROMPT, "ITEMS\nINSUFFICIENT!"));
-	logItems();
     }
 
     @Override
     public void onLevelInsufficient() {
-	/*Log.d("TEST", "Level Insufficient");
-	actorDialogText.text = "Level Insufficient";
-	actorDialog.visible = true;
-	actorDialogText.visible = true;
-	actorDialogCounter = 0;*/
 	game.setScreen(new PromptScreen(game, this, PromptScreen.OK_PROMPT, "LEVEL\nINSUFFICIENT!"));
-	logItems();
     }
 
     @Override
@@ -321,10 +283,9 @@ public class QuestScreen extends GLScreen implements TouchEventCallback, QuestEv
 	    } else if (source.equals(rightButton)) {
 		questIndex++;
 		flip(true);
-	    } else if (source.equals(triggerQuest)) {
-		Log.d("TEST", "Tapped trigger button!");
+	    } else if (source.equals(triggerQuest))
 		quests[questIndex].trigger(game.getDroid());
-	    } else if (source.equals(actorDialog)) {
+	    else if (source.equals(actorDialog)) {
 		actorDialog.visible = false;
 		actorDialogText.visible = false;
 	    } else if (source.equals(back))
@@ -354,7 +315,6 @@ public class QuestScreen extends GLScreen implements TouchEventCallback, QuestEv
 
 	if (backPanel.tween != null && backPanel.tween.isFinished())
 	    for (int index = 0; index < quests[questIndex].requiredItems.length; index++) {
-		//batcher.drawSprite(341 + 50 * index, 142, quests[questIndex].requiredItems[index].width, quests[questIndex].requiredItems[index].height, .25f, .25f, 1, quests[questIndex].requiredItems[index].textureRegion);
 		quests[questIndex].requiredItems[index].x = 341 + 65 * index - quests[questIndex].requiredItems[index].width * .25f / 2;
 		quests[questIndex].requiredItems[index].y = 142 - quests[questIndex].requiredItems[index].height * .25f / 2;
 		quests[questIndex].requiredItems[index].scaleX = .25f;
@@ -497,13 +457,6 @@ public class QuestScreen extends GLScreen implements TouchEventCallback, QuestEv
 	    backPanel.alpha = 0f;
 	    backPanel.move(168, 4, 1f, 1f, 1, 1f, Linear.INOUT, 250, 250, true);
 	}
-    }
-
-    private void logItems() {
-	Log.d("TEST", "Quest: " + quests[questIndex].name);
-	for (int index = 0; index < quests[questIndex].requiredItems.length; index++)
-	    Log.d("TEST", "Required Item: " + quests[questIndex].requiredItems[index].name);
-
     }
 
 }

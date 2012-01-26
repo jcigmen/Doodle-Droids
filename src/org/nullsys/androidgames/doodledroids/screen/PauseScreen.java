@@ -135,20 +135,14 @@ public class PauseScreen extends GLScreen implements LoadingScreenCallback {
 
     @Override
     public void dispose() {
-
     }
 
     @Override
     public void menuPressed() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
     public void onLoad() {
-	/*Assets.unloadPastillas();
-	Assets.unloadSundotKulangotDroids();
-	Assets.unloadYemaDroids();*/
 	game.setScreen(new MainMenuScreen(game));
     }
 
@@ -161,7 +155,6 @@ public class PauseScreen extends GLScreen implements LoadingScreenCallback {
 
     @Override
     public void onOkTapped(PromptScreen prompt) {
-
     }
 
     @Override

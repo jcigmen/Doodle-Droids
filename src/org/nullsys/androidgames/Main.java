@@ -1,7 +1,6 @@
 package org.nullsys.androidgames;
 
 import android.graphics.Color;
-import android.util.Log;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -47,9 +46,7 @@ public class Main extends GLGame implements LoadingScreenCallback {
 	super.onSurfaceCreated(gl, config);
 	if (firstTimeCreate)
 	    firstTimeCreate = false;
-	else {
-	    Log.d("TEST", "[Main] Reloaded!");
+	else
 	    Assets.reload();
-	}
     }
 }

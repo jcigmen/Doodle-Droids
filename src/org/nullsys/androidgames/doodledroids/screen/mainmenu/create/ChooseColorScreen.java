@@ -52,7 +52,7 @@ public class ChooseColorScreen extends GLScreen implements TouchEventCallback {
 		model = new Sprite(new TextureRegion(Assets.models, 0, 0, 92, 82));
 		break;
 	    case DoodleDroid.PASTILLAS:
-		model = new Sprite(new TextureRegion(Assets.pastillasOneBlue, 0, 0, 128, 98));
+		model = new Sprite(new TextureRegion(Assets.pastillasBlue, 0, 0, 128, 98));
 		break;
 	}
 	model.x = (480 - model.width) / 2;
@@ -127,7 +127,6 @@ public class ChooseColorScreen extends GLScreen implements TouchEventCallback {
 	white.tapSound = Assets.tap;
 	addChild(white);
 
-	// Tween the displays
 	green.scaleX = .2f;
 	green.scaleY = .2f;
 	green.alpha = 0f;
@@ -241,19 +240,19 @@ public class ChooseColorScreen extends GLScreen implements TouchEventCallback {
 	    case DoodleDroid.PASTILLAS:
 		switch (color) {
 		    case Color.GREEN:
-			model.textureRegion = new TextureRegion(Assets.pastillasOneGreen, 0, 0, 128, 98);
+			model.textureRegion = new TextureRegion(Assets.pastillasGreen, 0, 0, 128, 98);
 			break;
 		    case Color.BLUE:
-			model.textureRegion = new TextureRegion(Assets.pastillasOneBlue, 0, 0, 128, 98);
+			model.textureRegion = new TextureRegion(Assets.pastillasBlue, 0, 0, 128, 98);
 			break;
 		    case Color.RED:
-			model.textureRegion = new TextureRegion(Assets.pastillasOneRed, 0, 0, 128, 98);
+			model.textureRegion = new TextureRegion(Assets.pastillasRed, 0, 0, 128, 98);
 			break;
 		    case Color.YELLOW:
-			model.textureRegion = new TextureRegion(Assets.pastillasOneYellow, 0, 0, 128, 98);
+			model.textureRegion = new TextureRegion(Assets.pastillasYellow, 0, 0, 128, 98);
 			break;
 		    case Color.WHITE:
-			model.textureRegion = new TextureRegion(Assets.pastillasOneWhite, 0, 0, 128, 98);
+			model.textureRegion = new TextureRegion(Assets.pastillasWhite, 0, 0, 128, 98);
 			break;
 		    default:
 		}
@@ -284,13 +283,10 @@ public class ChooseColorScreen extends GLScreen implements TouchEventCallback {
 
     @Override
     public void dispose() {
-
     }
 
     @Override
     public void menuPressed() {
-	// TODO Auto-generated method stub
-
     }
 
     @Override
@@ -353,10 +349,5 @@ public class ChooseColorScreen extends GLScreen implements TouchEventCallback {
     public void resume() {
 	if (Settings.musicEnabled && !Assets.mainMenuBGM.isPlaying())
 	    Assets.mainMenuBGM.play();
-    }
-
-    @Override
-    public void update(float deltaTime) {
-
     }
 }

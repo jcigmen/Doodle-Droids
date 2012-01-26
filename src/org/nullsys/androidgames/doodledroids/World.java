@@ -1,6 +1,5 @@
 package org.nullsys.androidgames.doodledroids;
 
-import android.util.Log;
 
 public class World extends Thread {
 
@@ -20,7 +19,6 @@ public class World extends Thread {
 
     @Override
     public void run() throws IllegalThreadStateException {
-	Log.d("TEST", "Starting World Thread...");
 	running = true;
 	while (true)
 	    while (running)
@@ -49,9 +47,7 @@ public class World extends Thread {
 			    worldCallback.onHourPassed(worldHours);
 		    }
 		} catch (NullPointerException e) {
-		    Log.d("TEST", "NPE at World thread. Error message: " + e);
 		} catch (Exception e) {
-		    Log.e("TEST", "ERROR at World thread. Error message: " + e);
 		}
     }
 
