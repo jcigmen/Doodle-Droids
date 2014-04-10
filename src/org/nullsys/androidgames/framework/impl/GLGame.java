@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
-import android.view.KeyEvent;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -189,6 +188,11 @@ public abstract class GLGame extends Activity implements Game, Renderer {
     }
 
     @Override
+    public void onBackPressed() {
+
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
 
@@ -249,20 +253,6 @@ public abstract class GLGame extends Activity implements Game, Renderer {
 		stateChanged.notifyAll();
 	    }
 	}
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-	switch (keyCode) {
-	    case KeyEvent.KEYCODE_MENU:
-		screen.menuPressed();
-		break;
-	    case KeyEvent.KEYCODE_BACK:
-		screen.backPressed();
-		break;
-	}
-
-	return true;
     }
 
     @Override

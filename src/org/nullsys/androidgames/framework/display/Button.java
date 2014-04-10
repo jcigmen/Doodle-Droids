@@ -64,7 +64,6 @@ public class Button extends DisplayObjectContainer {
 		    }
 		    break;
 		case TouchEvent.TOUCH_DRAGGED:
-		    tapped = false;
 		    if (!hitTestPoint(eventX, eventY)) {
 			toggled = false;
 			dragged = false;

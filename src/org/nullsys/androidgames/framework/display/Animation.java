@@ -85,7 +85,6 @@ public class Animation extends DisplayObject implements Controllable {
 		    }
 		    break;
 		case TouchEvent.TOUCH_DRAGGED:
-		    tapped = false;
 		    if (!hitTestPoint(eventX, eventY))
 			dragged = false;
 		    else {

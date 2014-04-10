@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.nullsys.androidgames.doodledroids.event.PromptCallback;
 import org.nullsys.androidgames.doodledroids.screen.PromptScreen;
+import org.nullsys.androidgames.framework.Input.KeyEvent;
 import org.nullsys.androidgames.framework.Input.TouchEvent;
 import org.nullsys.androidgames.framework.display.DisplayObject;
 import org.nullsys.androidgames.framework.display.event.TouchEventCallback;
@@ -67,6 +68,12 @@ public abstract class Screen implements TouchEventCallback, PromptCallback {
 		if (!alreadyHit(displayObjectIndex, event.x, event.y))
 		    displayObjects.get(displayObjectIndex).checkInputs(event.type, event.x, event.y);
 	}
+	List<KeyEvent> keyEvents = i.getKeyEvents();
+	for (int eventIndex = 0; eventIndex < keyEvents.size(); eventIndex++)
+	    if (keyEvents.get(eventIndex).type == KeyEvent.KEY_DOWN && keyEvents.get(eventIndex).keyCode == android.view.KeyEvent.KEYCODE_BACK)
+		backPressed();
+	    else if (keyEvents.get(eventIndex).type == KeyEvent.KEY_DOWN && keyEvents.get(eventIndex).keyCode == android.view.KeyEvent.KEYCODE_MENU)
+		menuPressed();
 	update(deltaTime);
     }
 
